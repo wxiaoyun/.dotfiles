@@ -1,0 +1,16 @@
+[user]
+	email = w.xy020203@gmail.com
+	name = ForAeons
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINH4ltF2thZzF/5V6M+JoKeuzwhVh9j/gGgHKqIAPUiv
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+  
+[push]
+	autosetupremote = true

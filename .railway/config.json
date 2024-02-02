@@ -1,0 +1,23 @@
+{
+  "projects": {
+    "/Users/wuxiaoyun/Desktop/lms-backend": {
+      "projectPath": "/Users/wuxiaoyun/Desktop/lms-backend",
+      "name": "filthy-friction",
+      "project": "d296ea6f-2941-4176-8b32-ef7e210cf56a",
+      "environment": "2ec6c44d-b5d5-42c4-90d1-da71601e97c7",
+      "environmentName": "production",
+      "service": "9a094b0d-4d48-41b2-98ca-a1c58503cb2a"
+    },
+    "/Users/wuxiaoyun/Desktop/lms-frontend-v2": {
+      "projectPath": "/Users/wuxiaoyun/Desktop/lms-frontend-v2",
+      "name": "zippy-crow",
+      "project": "bf24ff96-0e85-4958-9e05-b5a2fe8bbf1c",
+      "environment": "e2a25958-1458-4d6c-bd03-40a5bc1ef8cf",
+      "environmentName": "production",
+      "service": "c96a13dc-95bd-4e72-ad02-c9151edf2b57"
+    }
+  },
+  "user": {
+    "token": "rw_Fe26.2**2d04c1a031cbd619c6f5ffe2fcc58e598e5903074be239ad7a68468e12e5546c*Z0hI-mgpXgijqIjBSbKmuQ*HXaWafdaF9sr0CpFYYdYFYQQLNn_69Bo7b3nuoBetGPTAcMb-j782j4Z2jx4tgd4LMvejHKLpQisT5zBrr9P4w*1705909920463*b9bfc124a2e268c773bb4d7b08a1a5f6ad096ad5418f388d7d3b6fdb6ff7e5ac*mtsYPgMIjDS8nThHJA0f1aVJrxzeGyHIVmqU27Wiu1E"
+  }
+}
