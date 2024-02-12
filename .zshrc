@@ -88,3 +88,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# Aliases for nvim
+alias vim="nvim"
+alias vide="neovide"
