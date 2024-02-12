@@ -1,0 +1,12 @@
+{
+	"name": "sicp",
+	"module": "homework.js",
+	"type": "commonjs",
+	"devDependencies": {},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"sicp": "^1.1.4"
+	}
+}
