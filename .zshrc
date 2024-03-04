@@ -88,7 +88,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
 # Aliases for nvim
 alias vim="nvim"
 alias vide="neovide"
+
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/"
+export PATH=$JAVA_HOME/bin:$PATH
