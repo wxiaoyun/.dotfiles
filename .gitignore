@@ -1,2 +1,4 @@
 .vscode/extensions
 .vscode/extensions/**
+
+**.DS_Store
