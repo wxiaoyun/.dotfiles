@@ -28,9 +28,9 @@
 # alias zshconfig="mate ~/.zshrc"
 # Download Znap, if it's not there yet.
 [[ -r ~/Repos/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
-source ~/Repos/znap/znap.zsh  # Start Znap
+  git clone --depth 1 -- \
+    https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
+source ~/Repos/znap/znap.zsh # Start Znap
 
 znap source marlonrichert/zsh-autocomplete
 # `znap install` adds new commands and completions.
@@ -43,15 +43,15 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/wuxiaoyun/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/wuxiaoyun/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/wuxiaoyun/anaconda3/bin:$PATH"
-    fi
+  if [ -f "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/Users/wuxiaoyun/anaconda3/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
@@ -75,7 +75,7 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 export NVM_DIR="$HOME/.nvm"
@@ -89,6 +89,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Aliases for nvim
 alias vim="nvim"
 alias vide="neovide"
+alias cdc="cd ~/code"
+alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH
 
 # Print neofetch
 neofetch
