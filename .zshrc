@@ -41,7 +41,6 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   # eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/jblab_2021.omp.json)"
 fi
 
-
 # Ruby
 export RBENV_ROOT=/opt/homebrew/opt/rbenv
 export PATH=$RBENV_ROOT/bin:$PATH
@@ -65,12 +64,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "/Users/wuxiaoyun/.bun/_bun" ] && source "/Users/wuxiaoyun/.bun/_bun" # bun completions
 
-# Aliases for nvim
-alias vim="nvim"
-alias vide="neovide"
-alias cdc="cd ~/code"
-alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/wuxiaoyun/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
@@ -88,6 +81,11 @@ unset __conda_setup
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
+ 
+# Aliases 
+alias vim="nvim"
+alias cdc="cd ~/code"
+alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
 
 # Print neofetch
 neofetch
