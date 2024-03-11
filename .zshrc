@@ -41,6 +41,36 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   # eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/jblab_2021.omp.json)"
 fi
 
+
+# Ruby
+export RBENV_ROOT=/opt/homebrew/opt/rbenv
+export PATH=$RBENV_ROOT/bin:$PATH
+eval "$(rbenv init - zsh)"
+
+# Databases
+export PATH=${PATH}:/usr/local/mysql-8.0.33-macos13-arm64/bin/
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# Golang
+export GOBIN=$HOME/go/bin
+export PATH=$PATH:$GOBIN
+
+# nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "/Users/wuxiaoyun/.bun/_bun" ] && source "/Users/wuxiaoyun/.bun/_bun" # bun completions
+
+# Aliases for nvim
+alias vim="nvim"
+alias vide="neovide"
+alias cdc="cd ~/code"
+alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/wuxiaoyun/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
@@ -55,42 +85,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# System Paths
-export PATH="$PATH:/Users/wuxiaoyun/.nvm/versions/node/v20.1.0/lib/node_modules/yarn/bin"
-export RUBY_CONFIGURE_OPTS="--with-zlib-dir=$(brew --prefix zlib) --with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix libyaml) --with-gdbm-dir=$(brew --prefix gdbm)"
-export CFLAGS="-Wno-error=implicit-function-declaration"
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
-export RBENV_ROOT=/opt/homebrew/opt/rbenv
-export PATH=$RBENV_ROOT/bin:$PATH
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
-eval "$(rbenv init - zsh)"
-export PATH=${PATH}:/usr/local/mysql-8.0.33-macos13-arm64/bin/
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-
-# Golang
-export GOBIN=$HOME/go/bin
-export PATH=$PATH:$GOBIN
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-export NVM_DIR="$HOME/.nvm"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# bun completions
-[ -s "/Users/wuxiaoyun/.bun/_bun" ] && source "/Users/wuxiaoyun/.bun/_bun"
-
-# Aliases for nvim
-alias vim="nvim"
-alias vide="neovide"
-alias cdc="cd ~/code"
-alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
