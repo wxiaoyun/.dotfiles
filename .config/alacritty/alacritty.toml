@@ -4,10 +4,12 @@ live_config_reload = true
 import = ["~/.config/alacritty/theme.toml"]
 
 [window]
+title = "ForAeons"
 decorations = "Full"
 opacity = 0.8
 blur = true
 startup_mode = "Maximized"
+dynamic_padding = true
 
 [font]
 size = 14
