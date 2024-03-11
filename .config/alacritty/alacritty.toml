@@ -1,17 +1,21 @@
 # General
 live_config_reload = true
 
-# Theme
 import = ["~/.config/alacritty/theme.toml"]
 
-# Window
 [window]
 decorations = "Full"
-opacity = 0.9
+opacity = 0.8
 blur = true
 startup_mode = "Maximized"
 
-# Font
 [font]
 size = 14
-normal = { "family" = "FiraCode Nerd Font Mono" }
+normal = { "family" = "FiraCode Nerd Font Mono", style = "Regular" }
+bold = { "family" = "FiraCode Nerd Font Mono", style = "Bold" }
+
+[keyboard]
+bindings = [
+  { key = "ArrowLeft", mods = "Control|Shift", action = "SelectPreviousTab" },
+  { key = "ArrowRight", mods = "Control|Shift", action = "SelectNextTab" },
+]
