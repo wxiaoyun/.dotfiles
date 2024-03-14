@@ -24,3 +24,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias vim=nvim
 alias socvpn="sudo openfortivpn webvpn.comp.nus.edu.sg --username=e0702008"
 alias cdc="cd ~/code"
+alias sysupdate="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && brew update && brew upgrade && brew cleanup"
