@@ -84,6 +84,7 @@ export PATH=$JAVA_HOME/bin:$PATH
  
 # Aliases 
 alias vim="nvim"
+alias idea="open -na \"Intellij IDEA.app\" --args \"$@\""
 alias cdc="cd ~/code"
 alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
 
