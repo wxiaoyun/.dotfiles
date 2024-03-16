@@ -1,7 +1,5 @@
 .gitconfig
 
 .zshrc.zwc
-.zshenv
-.zprofile
 
 *.DS_Store
