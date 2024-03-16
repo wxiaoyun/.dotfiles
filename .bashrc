@@ -99,9 +99,6 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-# alacritty auto-completion
-source /home/wuxiaoyun/code/alacritty/extra/completions/alacritty.bash
-
 # Rust
 . "$HOME/.cargo/env"
 
