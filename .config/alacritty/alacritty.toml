@@ -5,10 +5,11 @@ import = ["~/.config/alacritty/theme.toml"]
 
 [window]
 title = "ForAeons"
+dimensions = { columns = 120, lines = 36 }
 decorations = "Full"
 opacity = 0.8
 blur = true
-startup_mode = "Maximized"
+startup_mode = "Windowed"
 dynamic_padding = true
 
 [font]
