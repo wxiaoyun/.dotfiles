@@ -30,46 +30,51 @@ LINUX="Linux"
 
 if [[ $OS == $MACOS ]]; then
 
-  # Ruby
-  export RBENV_ROOT=/opt/homebrew/opt/rbenv
-  export PATH=$RBENV_ROOT/bin:$PATH
-  eval "$(rbenv init - zsh)"
+    # Ruby
+    export RBENV_ROOT=/opt/homebrew/opt/rbenv
+    export PATH=$RBENV_ROOT/bin:$PATH
+    eval "$(rbenv init - zsh)"
 
-  # nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-  source $(brew --prefix nvm)/nvm.sh
-  export NVM_DIR="$HOME/.nvm"
+    # nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+    source $(brew --prefix nvm)/nvm.sh
+    export NVM_DIR="$HOME/.nvm"
 
-  # Databases
-  export PATH=${PATH}:/usr/local/mysql-8.0.33-macos13-arm64/bin/
-  export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+    # Databases
+    export PATH=${PATH}:/usr/local/mysql-8.0.33-macos13-arm64/bin/
+    export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
-  [ -s "/Users/wuxiaoyun/.bun/_bun" ] && source "/Users/wuxiaoyun/.bun/_bun" # bun completions
+    [ -s "/Users/wuxiaoyun/.bun/_bun" ] && source "/Users/wuxiaoyun/.bun/_bun" # bun completions
 
-  # >>> conda initialize >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$('/Users/wuxiaoyun/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
-  if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-  else
-    if [ -f "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh" ]; then
-      . "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh"
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/Users/wuxiaoyun/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-      export PATH="/Users/wuxiaoyun/anaconda3/bin:$PATH"
+        if [ -f "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/Users/wuxiaoyun/anaconda3/bin:$PATH"
+        fi
     fi
-  fi
-  unset __conda_setup
-  # <<< conda initialize <<<
+    unset __conda_setup
+    # <<< conda initialize <<<
 
-  export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
-  export PATH=$JAVA_HOME/bin:$PATH
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
+    export PATH=$JAVA_HOME/bin:$PATH
 
 elif [[ $OS == $LINUX ]]; then
 
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    export JAVA_HOME="/home/wuxiaoyun/.jdks/azul-11.0.22"
+    export PATH=$JAVA_HOME/bin:$PATH
+
+    export GRAPHVIZ_DOT="/usr/bin/dot"
 
 fi
 
@@ -80,7 +85,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # Download Znap, if it's not there yet.
 [[ -r ~/Repos/znap/znap.zsh ]] ||
-  git clone --depth 1 -- \
+git clone --depth 1 -- \
     https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
 source ~/Repos/znap/znap.zsh # Start Znap
 
