@@ -1,4 +1,3 @@
-
 #format = """
 #[╭─user───❯](bold blue) $username
 #[┣─system─❯](bold yellow) $hostname
@@ -17,6 +16,8 @@
 # format = '[$hostname](bold #2ec4b6) '
 # trim_at = "."
 # disabled = false
+
+command_timeout = 1000
 
 [character]
 success_symbol = '[➜](bold #2ec4b6) '
@@ -49,7 +50,7 @@ symbol = " "
 symbol = " "
 
 [docker_context]
-symbol = " "
+symbol = "󰡨 "
 format = "via [$symbol$context]($style) "
 style = "blue bold"
 only_with_files = true
@@ -119,7 +120,7 @@ symbol = " "
 symbol = " "
 
 [swift]
-symbol = "ﯣ "
+symbol = " "
 
 [nodejs]
 format = "via [󰎙 Node.js $version](bold green) "
