@@ -20,8 +20,8 @@
 command_timeout = 1000
 
 [character]
-success_symbol = '[➜](bold #2ec4b6) '
-error_symbol = '[➜](bold red) '
+success_symbol = '[>_](bold #2ec4b6) '
+error_symbol = '[>_](bold red) '
 
 # configure directory
 [directory]
