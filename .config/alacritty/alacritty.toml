@@ -4,6 +4,9 @@ live_config_reload = true
 # Color theme
 import = ["~/.config/alacritty/theme.toml"]
 
+[env]
+TERM = "xterm-256color"
+
 [window]
 title = "ForAeons"
 dimensions = { columns = 120, lines = 36 }
