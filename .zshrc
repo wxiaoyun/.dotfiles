@@ -115,7 +115,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Aliases
 alias vim="nvim"
-alias cdc="cd ~/code"
+alias cdc="cd ~/dev"
 alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
 
 eval "$(starship init zsh)"
