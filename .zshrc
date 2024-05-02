@@ -16,7 +16,6 @@
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ---------- OS specific settings --------- #
 OS=$(uname)
@@ -60,8 +59,7 @@ if [[ $OS == $MACOS ]]; then
     export PATH=$JAVA_HOME/bin:$PATH
 
 elif [[ $OS == $LINUX ]]; then
-
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    export ARCHFLAGS="-arch x86_64"
 
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -119,4 +117,4 @@ alias cdd="cd ~/dev"
 alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
 
 eval "$(starship init zsh)"
-neofetch
+fastfetch
