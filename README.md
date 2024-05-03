@@ -13,6 +13,12 @@ allowing you to easily symlink configuration files to your home directory.
   brew install stow
   ```
 
+- **Arch Linux**: Use Pacman or any AUR helper to install Stow.
+
+  ```sh
+  pacman -S stow
+  ```
+
 - **Debian-Based Systems**: Use apt to install Stow.
 
   ```sh
@@ -32,7 +38,7 @@ allowing you to easily symlink configuration files to your home directory.
    to symlink your git configuration, navigate to the repository's root and run:
 
    ```sh
-   cd ~/dotfiles # cd to the directory where you cloned your dotfiles
+   cd ~/.dotfiles # cd to the directory where you cloned your dotfiles
    stow .
    ```
 
