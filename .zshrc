@@ -61,11 +61,6 @@ elif [[ $OS == $LINUX ]]; then
     unset __conda_setup
     # <<< conda initialize <<<
 
-    export JAVA_HOME="/home/wuxiaoyun/.jdks/azul-11.0.22"
-    export PATH=$JAVA_HOME/bin:$PATH
-
-    export GRAPHVIZ_DOT="/usr/bin/dot"
-
 fi
 
 # ---------- Common --------- #
