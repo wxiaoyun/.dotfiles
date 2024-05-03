@@ -40,24 +40,6 @@ if [[ $OS == $MACOS ]]; then
 
     [ -s "/Users/wuxiaoyun/.bun/_bun" ] && source "/Users/wuxiaoyun/.bun/_bun" # bun completions
 
-    # >>> conda initialize >>>
-    # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('/Users/wuxiaoyun/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh" ]; then
-            . "/Users/wuxiaoyun/anaconda3/etc/profile.d/conda.sh"
-        else
-            export PATH="/Users/wuxiaoyun/anaconda3/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
-    # <<< conda initialize <<<
-
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
-    export PATH=$JAVA_HOME/bin:$PATH
-
 elif [[ $OS == $LINUX ]]; then
     export ARCHFLAGS="-arch x86_64"
 
