@@ -17,7 +17,7 @@ startup_mode = "Windowed"
 dynamic_padding = true
 
 [cursor]
-style.blinking = "On"
+style.blinking = "Always"
 blink_timeout = 0
 
 [font]
