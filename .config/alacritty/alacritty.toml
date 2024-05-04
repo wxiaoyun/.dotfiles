@@ -10,21 +10,19 @@ TERM = "xterm-256color"
 [window]
 title = "ForAeons"
 dimensions = { columns = 120, lines = 36 }
-decorations = "Full"
+decorations = "None"
 opacity = 0.8
 blur = true
 startup_mode = "Windowed"
 dynamic_padding = true
 
+[cursor]
+style.blinking = "On"
+blink_timeout = 0
+
 [font]
-size = 16
+size = 14
 normal = { "family" = "Iosevka Nerd Font Mono", style = "Regular" }
 bold = { "family" = "Iosevka Nerd Font Mono", style = "Bold" }
 italic = { "family" = "Iosevka Nerd Font Mono", style = "Italic" }
 bold_italic = { "family" = "Iosevka Nerd Font Mono", style = "Bold Italic" }
-
-[keyboard]
-bindings = [
-  { key = "ArrowLeft", mods = "Control|Shift", action = "SelectPreviousTab" },
-  { key = "ArrowRight", mods = "Control|Shift", action = "SelectNextTab" },
-]
