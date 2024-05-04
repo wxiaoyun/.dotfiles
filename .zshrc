@@ -89,9 +89,12 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Aliases
+alias ls="eza --color --icons"
+alias cd="z"
 alias vim="nvim"
-alias cdd="cd ~/dev"
+alias cdd="cd ~/dev/"
 alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 fastfetch
