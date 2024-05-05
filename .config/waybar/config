@@ -3,36 +3,44 @@
     "position": "top",
     "height": 30,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "custom/weather", "custom/storage", "backlight", "pulseaudio", "network", "idle_inhibitor", "clock"],
-    "sway/mode": {
+    "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/window", "hyprland/mode"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "custom/updates", "custom/weather", "backlight", "pulseaudio", "network", "idle_inhibitor", "clock"],
+    "hyprland/mode": {
         "format": " {}"
     },
-    "sway/workspaces": {
-        "format": "{name}",
-        "disable-scroll": true
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "persistent-workspaces": {
+            "*": 5
+        }
     },
-    "sway/window": {
+    "hyprland/window": {
         "max-length": 80,
+        "separate-outputs": true,
         "tooltip": false
     },
     "clock": {
         "format": "{:%a %d %b %H:%M}",
         "tooltip": false
     },
-    "network": {
-        "format": "{icon}",
-        "format-alt": "{ipaddr}/{cidr} {icon}",
-        "format-alt-click": "click-right",
-        "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
-        },
-        "on-click": "termite -e nmtui",
-    "tooltip": false
+    "cpu": {
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10
     },
+    "memory": {
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10
+    },
+	"network": {
+		"tooltip": false,
+		"format-wifi": "  {essid}",
+		"format-ethernet": ""
+	},
     "pulseaudio": {
         "format": "{icon}",
         "format-alt": "{volume} {icon}",
@@ -46,14 +54,6 @@
         "on-click": "pavucontrol",
         "tooltip": false
     },
-    "custom/storage": {
-        "format": "{} ",
-        "format-alt": "{percentage}% ",
-        "format-alt-click": "click-right",
-        "return-type": "json",
-        "interval": 60,
-        "exec": "$CONFIG_HOME/shell/storage.sh"
-    },
     "backlight": {
         "format": "{icon}",
         "format-alt": "{percent}% {icon}",
@@ -61,6 +61,11 @@
         "format-icons": ["", ""],
         "on-scroll-down": "light -A 1",
         "on-scroll-up": "light -U 1"
+    },
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi"
     },
     "custom/weather": {
         "format": "{}",
@@ -70,6 +75,13 @@
         "return-type": "json",
         "exec": "$CONFIG_HOME/shell/weather.sh",
         "exec-if": "ping wttr.in -c1"
+    },
+    "custom/updates":{
+        "format": "{} Update(s)",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
     },
     "idle_inhibitor": {
         "format": "{icon}",
