@@ -1,5 +1,5 @@
 .gitconfig
 
-.zshrc.zwc
+**.zwc
 
-*.DS_Store
+**.DS_Store
