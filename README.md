@@ -5,6 +5,12 @@ allowing you to easily symlink configuration files to your home directory.
 
 ## Installation
 
+### Clone this repository
+
+```bash
+git clone --recursive-submodule https://github.com/ForAeons/.dotfiles.git
+```
+
 ### Install Stow
 
 - **macOS**: Use Homebrew to install Stow.
