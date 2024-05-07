@@ -1,97 +1,116 @@
 {
-    "layer": "bottom",
+  "layer": "top",
     "position": "top",
-    "height": 30,
-
-    "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/window", "hyprland/mode"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["tray", "custom/updates", "custom/weather", "backlight", "pulseaudio", "network", "idle_inhibitor", "clock"],
-    "hyprland/mode": {
-        "format": " {}"
-    },
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
-        "persistent-workspaces": {
-            "*": 5
-        }
+    "margin-bottom": 0,
+    "modules-left": [
+      "clock",
+      "hyprland/workspaces",
+      "custom/updates",
+      "tray",
+      ],
+    "modules-center": [
+      "hyprland/window",
+      ],
+    "modules-right": [
+      "network",
+      "temperature",
+      "memory",
+      "cpu",
+      "pulseaudio",
+      "custom/powermenu",
+    ],
+    "tray": {
+      "icon-size": 24,
+      "spacing": 10
     },
     "hyprland/window": {
-        "max-length": 80,
-        "separate-outputs": true,
-        "tooltip": false
+      "format": " {}",
+      "rewrite": {
+          "(\\d\\. )?(.*) - Chromium": "<span color=\"#4285F4\"></span>  $2 ",
+          "nvim (.*)": "<span color=\"#57A143\"></span>  $1",
+          "nvim": "<span color=\"#57A143\">  Neovim</span> ",
+          "ranger(.*)": "<span color=\"#ffffff\"></span>  $1",
+          //"kitty (.*)": "<span color=\"#ffffff\"></span>  $1",
+          "Search(.*)": "<span color=\"#a855f7\"></span>  Search$1",
+      },
+      "separate-outputs": false
     },
-    "clock": {
-        "format": "{:%a %d %b %H:%M}",
-        "tooltip": false
+    "hyprland/submap": {
+      "format": "✌️ {}",
+      "max-length": 8,
+      "tooltip": true
     },
-    "cpu": {
-        "interval": 15,
-        "format": " {}%",
-        "max-length": 10
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "1": "󰲠",
+        "2": "󰲢",
+        "3": "󰲤",
+        "4": "󰲦",
+        "5": "󰲨",
+        "6": "󰲪",
+        "7": "󰲬",
+        "8": "󰲮",
+        "9": "󰲰",
+        "10": "󰿬",
+        "-99": "",
+        "active": "",
+        "default": ""
+      }
+    },
+    "network": {
+      "interface": "wlp79s0",
+      "tooltip-format-ethernet": "{ifname} ",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+      "interval": 2,
+      "format": " {bandwidthDownBits}  {bandwidthUpBits}",
+    },
+    "temperature": {
+      "format": "{icon} {temperatureC}°C",
+      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 80,
+      "format-icons": ["", "", ""]
     },
     "memory": {
-        "interval": 15,
-        "format": " {}%",
-        "max-length": 10
+      "format": "󰍛 {}%",
+      "tooltip": "false"
     },
-	"network": {
-		"tooltip": false,
-		"format-wifi": "  {essid}",
-		"format-ethernet": ""
-	},
+    "cpu": {
+      "format": " {usage}%",
+      "tooltip": "false"
+    },
+    "custom/powermenu": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "exec wlogout -p layer-shell",
+    },
+    "custom/updates": {
+      "format": "<span color=\"#61afef\"></span> {}",
+      "tooltip": false,
+      "interval": 3600,
+      "exec": "exec $CONFIG_HOME/shell/checkupdate.sh"
+    },
     "pulseaudio": {
-        "format": "{icon}",
-        "format-alt": "{volume} {icon}",
-        "format-alt-click": "click-right",
-        "format-muted": "",
-        "format-icons": {
-            "phone": [" ", " ", " ", " "],
-            "default": ["", "", "", ""]
-        },
-        "scroll-step": 10,
-        "on-click": "pavucontrol",
-        "tooltip": false
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": "",
+      "format-icons": {
+          "headphone": "",
+          "hands-free": "󰹆",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", ""]
+      },
+      "scroll-step": 1,
+      "on-click": "pavucontrol"
     },
-    "backlight": {
-        "format": "{icon}",
-        "format-alt": "{percent}% {icon}",
-        "format-alt-click": "click-right",
-        "format-icons": ["", ""],
-        "on-scroll-down": "light -A 1",
-        "on-scroll-up": "light -U 1"
-    },
-    "custom/launcher":{
-        "format": " ",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
-    },
-    "custom/weather": {
-        "format": "{}",
-        "format-alt": "{alt}: {}",
-        "format-alt-click": "click-right",
-        "interval": 1800,
-        "return-type": "json",
-        "exec": "$CONFIG_HOME/shell/weather.sh",
-        "exec-if": "ping wttr.in -c1"
-    },
-    "custom/updates":{
-        "format": "{} Update(s)",
-        "exec": "checkupdates | wc -l",
-        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-        "interval": 15,
-        "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-        "tooltip": false
-    },
-    "tray": {
-        "icon-size": 18
+    "clock": {
+      //"format": "<span color=\"#56b6c2\"></span> {:%H:%M}",
+      "format": "{:%H:%M}",
+      "interval": 60,
+      "tooltip": true,
+      "tooltip-format": "{:%d %B %H:%M}"
     }
 }
