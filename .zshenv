@@ -1,5 +1,3 @@
-#!/bin/sh
-
 export OS=$(uname)
 export MACOS="Darwin"
 export LINUX="Linux"

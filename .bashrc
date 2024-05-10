@@ -1,9 +1,3 @@
-#!/user/bin/env bash
-
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 case $- in
 *i*) ;;
@@ -73,21 +67,6 @@ xterm* | rxvt*)
 *) ;;
 esac
 
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
-
-# Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -99,12 +78,16 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # Rust
 . "$HOME/.cargo/env"
 
+# Node Version Manager
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # go
 export PATH=$PATH:"$HOME/go/bin"
@@ -113,7 +96,9 @@ export PATH=$PATH:"$HOME/go/bin"
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
-# Oh-my-posh
-eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/tokyonight_storm.omp.json)"
+export CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+[ -f "${CONFIG_HOME}/shell/znap.sh" ] && source "${CONFIG_HOME}/shell/znap.sh"
 
-neofetch
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+fastfetch
