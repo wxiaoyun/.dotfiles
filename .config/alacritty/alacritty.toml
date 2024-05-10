@@ -22,7 +22,7 @@ blink_timeout = 0
 
 [font]
 size = 14
-normal = { "family" = "Iosevka Nerd Font Mono", style = "Regular" }
+normal = { "family" = "Iosevka Nerd Font Mono", style = "Light" }
 bold = { "family" = "Iosevka Nerd Font Mono", style = "Bold" }
-italic = { "family" = "Iosevka Nerd Font Mono", style = "Italic" }
+italic = { "family" = "Iosevka Nerd Font Mono", style = "Light Italic" }
 bold_italic = { "family" = "Iosevka Nerd Font Mono", style = "Bold Italic" }
