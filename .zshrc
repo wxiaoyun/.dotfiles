@@ -3,6 +3,7 @@ HISTSIZE=5000
 HISTFILE=~/.cache/zsh/history
 SAVEHIST=$HISTSIZE
 HISTUP=erase
+
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -10,6 +11,9 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 export LANG=en_US.UTF-8
 export EDITOR=nvim
