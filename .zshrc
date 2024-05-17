@@ -1,3 +1,16 @@
+# zsh configs
+HISTSIZE=5000
+HISTFILE=~/.cache/zsh/history
+SAVEHIST=$HISTSIZE
+HISTUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 
@@ -7,12 +20,11 @@ export PATH=$PATH:$GOBIN
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# znap plugin manager
+[ -f "${CONFIG_HOME}/shell/znap.sh" ] && source "${CONFIG_HOME}/shell/znap.sh"
+
 # Aliases
 [ -f "${CONFIG_HOME}/shell/alias.sh" ] && source "${CONFIG_HOME}/shell/alias.sh"
-
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
 
 case $OS in
     $MACOS)
@@ -22,8 +34,6 @@ case $OS in
         [ -f "${CONFIG_HOME}/shell/linux.sh" ] && source "${CONFIG_HOME}/shell/linux.sh"
         ;;
 esac
-
-[ -f "${CONFIG_HOME}/shell/znap.sh" ] && source "${CONFIG_HOME}/shell/znap.sh"
 
 eval "$(starship init zsh)" # Initialize starship prompt
 eval "$(zoxide init zsh)" # Initialize zoxide
