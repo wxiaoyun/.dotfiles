@@ -8,7 +8,7 @@ allowing you to easily symlink configuration files to your home directory.
 ### Clone this repository
 
 ```bash
-git clone --recursive-submodule https://github.com/ForAeons/.dotfiles.git
+git clone --recursive https://github.com/ForAeons/.dotfiles.git
 ```
 
 ### Install Stow
@@ -33,19 +33,14 @@ git clone --recursive-submodule https://github.com/ForAeons/.dotfiles.git
 
 ### Configuration
 
-1. **Copy `.gitconfig.example`:**
-
-   Make a copy of `.gitconfig.example` and rename it to `.gitconfig`.
-   Modify the contents to suit your preferences for either macOS or Linux.
-
-2. **Using Stow:**
+1. **Using Stow:**
 
    Use Stow to create symbolic links in your home directory. For example,
    to symlink your git configuration, navigate to the repository's root and run:
 
    ```sh
    cd ~/.dotfiles # cd to the directory where you cloned your dotfiles
-   stow .
+   stow --adopt .
    ```
 
 This will create the necessary symbolic links in your home directory to the
