@@ -9,5 +9,6 @@ source ~/Repos/znap/znap.zsh # Start Znap
 znap source marlonrichert/zsh-autocomplete
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 znap source zsh-users/zsh-syntax-highlighting
-ZSH_AUTOSUGGEST_STRATEGY=(history)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-completions

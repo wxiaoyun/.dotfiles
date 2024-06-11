@@ -11,6 +11,10 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
+setopt interactive_comments
+
+autoload -Uz compinit
+compinit
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -25,17 +29,17 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # znap plugin manager
-[ -f "${CONFIG_HOME}/shell/znap.sh" ] && source "${CONFIG_HOME}/shell/znap.sh"
+source "${CONFIG_HOME}/shell/znap.sh"
 
 # Aliases
-[ -f "${CONFIG_HOME}/shell/alias.sh" ] && source "${CONFIG_HOME}/shell/alias.sh"
+source "${CONFIG_HOME}/shell/alias.sh"
 
 case $OS in
     $MACOS)
-        [ -f "${CONFIG_HOME}/shell/macos.sh" ] && source "${CONFIG_HOME}/shell/macos.sh"
+        source "${CONFIG_HOME}/shell/macos.sh"
         ;;
     $LINUX)
-        [ -f "${CONFIG_HOME}/shell/linux.sh" ] && source "${CONFIG_HOME}/shell/linux.sh"
+        source "${CONFIG_HOME}/shell/linux.sh"
         ;;
 esac
 
