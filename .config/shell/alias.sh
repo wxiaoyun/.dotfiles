@@ -12,5 +12,6 @@ alias v="$EDITOR"
 alias vim="$EDITOR"
 
 alias cdd="cd ~/dev/"
+alias lc="code ~/dev/leetcode"
 alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
 alias vpnsoc="sudo openfortivpn --username=e0702008"
