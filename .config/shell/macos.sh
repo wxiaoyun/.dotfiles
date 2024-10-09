@@ -8,4 +8,4 @@ source $(brew --prefix nvm)/nvm.sh
 # Databases
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
-[ -s "/Users/wuxiaoyun/.bun/_bun" ] && source "/Users/wuxiaoyun/.bun/_bun" # bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # bun completions

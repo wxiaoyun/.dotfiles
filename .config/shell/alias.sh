@@ -13,7 +13,7 @@ alias vim="nvim"
 
 # Composite shortcuts
 alias lla="ls -la"
-alias lc="code ~/code/leetcode"
+alias lc="code $HOME/code/leetcode"
 alias vpnsoc="sudo openfortivpn webvpn.comp.nus.edu.sg --username=e0702008"
 
 cdc() {
