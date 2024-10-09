@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # Download Znap, if it's not there yet.
 [[ -r ~/Repos/znap/znap.zsh ]] ||

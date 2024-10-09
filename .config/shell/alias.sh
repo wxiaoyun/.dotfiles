@@ -8,11 +8,14 @@ alias grep="grep --color=always"
 
 alias pn="pnpm"
 
-alias v="$EDITOR"
-alias vim="$EDITOR"
+alias v="nvim"
+alias vim="nvim"
 
-alias cdd="cd ~/dev/"
-alias lc="code ~/dev/leetcode"
-alias sshsoc="ssh wxiaoyun@pe113.comp.nus.edu.sg"
-alias vpnsoc="sudo openfortivpn --username=e0702008"
-alias sshcs3210="ssh e0702008@soctf-pdc-011.d1.comp.nus.edu.sg"
+# Composite shortcuts
+alias lla="ls -la"
+alias lc="code ~/code/leetcode"
+alias vpnsoc="sudo openfortivpn webvpn.comp.nus.edu.sg --username=e0702008"
+
+cdc() {
+  cd "$HOME/code/$1" || exit
+}
