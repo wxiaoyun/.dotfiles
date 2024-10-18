@@ -17,5 +17,5 @@ alias lc="code $HOME/code/leetcode"
 alias vpnsoc="sudo openfortivpn webvpn.comp.nus.edu.sg --username=e0702008"
 
 cdc() {
-  cd "$HOME/code/$1" || exit
+  cd "$HOME/code/$1"
 }
