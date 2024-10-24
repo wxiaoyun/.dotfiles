@@ -1,6 +1,5 @@
-# General
+[general]
 live_config_reload = true
-
 # Color theme
 import = ["~/.config/alacritty/theme.toml"]
 
