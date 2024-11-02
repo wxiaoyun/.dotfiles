@@ -84,6 +84,9 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # Rust
 . "$HOME/.cargo/env"
 
+# Deno
+. "$HOME/.deno/env"
+
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -102,4 +105,5 @@ source "${CONFIG_HOME}/shell/linux.sh"
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+
 fastfetch

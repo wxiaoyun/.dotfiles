@@ -23,6 +23,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 
+. "$HOME/.deno/env"
+
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
 
@@ -46,4 +48,5 @@ esac
 
 eval "$(starship init zsh)" # Initialize starship prompt
 eval "$(zoxide init zsh)" # Initialize zoxide
+
 fastfetch # Display system information
