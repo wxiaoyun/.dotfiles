@@ -95,10 +95,6 @@ export NVM_DIR="$HOME/.nvm"
 # go
 export PATH=$PATH:"$HOME/go/bin"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
-
 export CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 source "${CONFIG_HOME}/shell/alias.sh"
 source "${CONFIG_HOME}/shell/linux.sh"

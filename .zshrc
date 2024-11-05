@@ -28,9 +28,6 @@ export EDITOR=nvim
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
 
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # znap plugin manager
 source "${CONFIG_HOME}/shell/znap.sh"
 
