@@ -22,6 +22,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 export LANG=en_US.UTF-8
 export EDITOR=nvim
+export MANPAGER='nvim +Man!'
 
 . "$HOME/.deno/env"
 
