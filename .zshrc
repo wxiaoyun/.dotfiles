@@ -1,3 +1,6 @@
+# Return ig the shell is not interactive
+[[ -o interactive ]] || return
+
 # zsh configs
 HISTSIZE=5000
 HISTFILE=~/.cache/zsh/history
@@ -44,6 +47,7 @@ case $OS in
         ;;
 esac
 
+source <(fzf --zsh) # Initialize fzf
 eval "$(starship init zsh)" # Initialize starship prompt
 eval "$(zoxide init zsh)" # Initialize zoxide
 
