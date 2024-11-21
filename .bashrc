@@ -102,6 +102,7 @@ export CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 source "${CONFIG_HOME}/shell/alias.sh"
 source "${CONFIG_HOME}/shell/linux.sh"
 
+source "($fzf --bash)"
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
