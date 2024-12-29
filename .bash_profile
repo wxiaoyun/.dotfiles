@@ -17,4 +17,3 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-[ -s "$HOME/.deno/env" ] && . "$HOME/.deno/env"

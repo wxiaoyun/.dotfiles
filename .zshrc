@@ -24,8 +24,6 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 
-[ -s "$HOME/.deno/env" ] && . "$HOME/.deno/env"]
-
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
 
