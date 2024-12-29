@@ -85,10 +85,10 @@ export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 
 # Rust
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # Deno
-. "$HOME/.deno/env"
+[ -s "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"

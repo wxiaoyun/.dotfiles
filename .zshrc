@@ -1,6 +1,3 @@
-# Return ig the shell is not interactive
-[[ -o interactive ]] || return
-
 # zsh configs
 HISTSIZE=5000
 HISTFILE=~/.cache/zsh/history
@@ -27,7 +24,7 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 
-. "$HOME/.deno/env"
+[ -s "$HOME/.deno/env" ] && . "$HOME/.deno/env"]
 
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
