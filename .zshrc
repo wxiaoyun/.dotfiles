@@ -27,6 +27,8 @@ export MANPAGER='nvim +Man!'
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
 
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 # znap plugin manager
 source "${CONFIG_HOME}/shell/znap.sh"
 
