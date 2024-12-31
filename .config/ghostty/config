@@ -1,5 +1,6 @@
 font-family = Iosevka Nerd Font Mono
 font-size = 18
+font-feature = -calt
 
 theme = tokyonight
 
