@@ -35,14 +35,8 @@ source "${CONFIG_HOME}/shell/znap.sh"
 # Aliases
 source "${CONFIG_HOME}/shell/alias.sh"
 
-case $OS in
-    $MACOS)
-        source "${CONFIG_HOME}/shell/macos.sh"
-        ;;
-    $LINUX)
-        source "${CONFIG_HOME}/shell/linux.sh"
-        ;;
-esac
+OS_SPECIFIC_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
+[ -s "${OS_SPECIFIC_CONFIG}" ] && source "${OS_SPECIFIC_CONFIG}"
 
 source <(fzf --zsh) # Initialize fzf
 eval "$(starship init zsh)" # Initialize starship prompt
