@@ -1,5 +1,2 @@
-case $OS in
-$MACOS)
-  source "${CONFIG_HOME}/shell/macosprofile.sh"
-  ;;
-esac
+ZPROFILE = "${CONFIG_HOME}/shell/${OS}_profile.sh"
+[ -s "${ZPROFILE}" ] && source "${ZPROFILE}"
