@@ -12,6 +12,7 @@ alias grep="grep --color=always"
 
 alias pn="pnpm"
 alias srcpy="source .venv/bin/activate"
+alias ivim="nvim \$(fzf -m --preview='bat --color=always {}')"
 
 # Composite shortcuts
 alias lla="ls -la"
