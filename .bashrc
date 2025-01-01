@@ -88,8 +88,11 @@ eval "$(fnm env --use-on-cd --shell bash)"
 export PATH=$PATH:"$HOME/go/bin"
 
 export CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
+[ -s "${OS_CONFIG}" ] && source "${OS_CONFIG}"
+
 source "${CONFIG_HOME}/shell/alias.sh"
-source "${CONFIG_HOME}/shell/linux.sh"
 
 source "($fzf --bash)"
 eval "$(starship init bash)"

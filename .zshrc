@@ -35,8 +35,8 @@ source "${CONFIG_HOME}/shell/znap.sh"
 # Aliases
 source "${CONFIG_HOME}/shell/alias.sh"
 
-OS_SPECIFIC_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
-[ -s "${OS_SPECIFIC_CONFIG}" ] && source "${OS_SPECIFIC_CONFIG}"
+OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
+[ -s "${OS_CONFIG}" ] && source "${OS_CONFIG}"
 
 source <(fzf --zsh) # Initialize fzf
 eval "$(starship init zsh)" # Initialize starship prompt
