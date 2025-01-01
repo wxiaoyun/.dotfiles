@@ -1,2 +1,2 @@
-ZPROFILE="${CONFIG_HOME}/shell/${OS}_profile.sh"
-[ -s "${ZPROFILE}" ] && source "${ZPROFILE}"
+OS_ZPROFILE="${CONFIG_HOME}/shell/${OS}.zprofile"
+[ -s "${OS_ZPROFILE}" ] && source "${OS_ZPROFILE}"
