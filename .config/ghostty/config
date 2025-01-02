@@ -8,3 +8,5 @@ background-opacity = 0.8
 background-blur-radius = 20
 
 window-title-font-family = Iosevka Nerd Font Mono
+window-height = 36
+window-width = 120
