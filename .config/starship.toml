@@ -6,7 +6,9 @@
 # disabled = false
 # show_always = true
 
-# [hostname]
+[hostname]
+ssh_symbol = ""
+style = "bold #669bbc"
 # ssh_only = false
 # format = '[$hostname](bold #a9d6e5) '
 # trim_at = "."
