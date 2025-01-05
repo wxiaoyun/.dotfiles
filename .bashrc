@@ -94,7 +94,7 @@ OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
 
 source "${CONFIG_HOME}/shell/alias.sh"
 
-source "($fzf --bash)"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 

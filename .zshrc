@@ -38,7 +38,7 @@ source "${CONFIG_HOME}/shell/alias.sh"
 OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
 [ -s "${OS_CONFIG}" ] && source "${OS_CONFIG}"
 
-source <(fzf --zsh) # Initialize fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(starship init zsh)" # Initialize starship prompt
 eval "$(zoxide init zsh)" # Initialize zoxide
 
