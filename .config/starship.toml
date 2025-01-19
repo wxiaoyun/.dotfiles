@@ -34,7 +34,7 @@ disabled = false
 style = "bold italic red"
 
 [aws]
-symbol = "  "
+disabled = true
 
 [conda]
 symbol = " "
