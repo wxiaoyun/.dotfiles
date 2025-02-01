@@ -1,5 +1,9 @@
 #!/bin/sh
 
+alias v="nvim"
+alias vim="nvim"
+alias ivim="nvim \$(fzf -m --preview='bat --color=always {}')"
+
 alias ls="eza --color --icons --group-directories-first"
 alias cd="z"
 alias mv="mv -iv"
@@ -7,10 +11,7 @@ alias rm="rm -I"
 alias grep="grep --color=always"
 
 alias pn="pnpm"
-
-alias v="nvim"
-alias vim="nvim"
-alias ivim="nvim \$(fzf -m --preview='bat --color=always {}')"
+alias srcpy="source .venv/bin/activate"
 
 # Composite shortcuts
 alias lla="ls -la"
