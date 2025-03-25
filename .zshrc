@@ -13,16 +13,19 @@ setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt interactive_comments
 
-fpath=(~/.zsh $fpath)
-autoload -Uz compinit
-compinit -u
-
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
 
 export LANG=en_US.UTF-8
 export EDITOR=nvim
-export MANPAGER='nvim +Man!'
+export MANPAGER="nvim +Man!"
 
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
