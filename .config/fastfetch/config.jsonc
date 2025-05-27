@@ -4,63 +4,63 @@
     "type": "small",
     "padding": {
       "top": 2,
-      "left": 4
-    }
+      "left": 4,
+    },
   },
   "display": {
     "separator": "",
     "key": {
-      "width": 15
-    }
+      "width": 15,
+    },
   },
   "modules": [
     {
       "key": "╭───────────╮",
-      "type": "custom"
+      "type": "custom",
     },
     {
       // draw borders first to make colors of left and right border consistant
       "key": "│           │\u001b[11D\u001b[31m user",
       "type": "title",
-      "format": "{1}"
+      "format": "{1}",
     },
     {
       "key": "│           │\u001b[11D\u001b[32m󰇅 hname",
       "type": "title",
-      "format": "{2}"
+      "format": "{2}",
     },
     {
       "key": "│           │\u001b[11D\u001b[33m distro",
-      "type": "os"
+      "type": "os",
     },
     {
       "key": "│           │\u001b[11D\u001b[34m DE/WM",
-      "type": "wm"
+      "type": "wm",
     },
     {
       "key": "│           │\u001b[11D\u001b[35m term",
-      "type": "terminal"
+      "type": "terminal",
     },
     {
       "key": "│           │\u001b[11D\u001b[36m shell",
-      "type": "shell"
+      "type": "shell",
     },
     {
       "key": "│           │\u001b[11D\u001b[31m󰅐 uptime",
-      "type": "uptime"
+      "type": "uptime",
     },
     {
       "key": "├───────────┤",
-      "type": "custom"
+      "type": "custom",
     },
     {
       "key": "│           │\u001b[11D\u001b[m󰉼 colors",
       "type": "colors",
-      "symbol": "circle"
+      "symbol": "circle",
     },
     {
       "key": "╰───────────╯",
-      "type": "custom"
-    }
-  ]
+      "type": "custom",
+    },
+  ],
 }
