@@ -9,6 +9,7 @@ alias cd="z"
 alias mv="mv -iv"
 alias rm="rm -I"
 alias grep="grep --color=always"
+alias lg="lazygit"
 
 alias pn="pnpm"
 alias srcpy="source .venv/bin/activate"
