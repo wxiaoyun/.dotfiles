@@ -14,3 +14,5 @@ zmodule zsh-users/zsh-history-substring-search
 
 zmodule pabloariasal/zfm
 zmodule Aloxaf/fzf-tab
+
+zmodule romkatv/powerlevel10k
