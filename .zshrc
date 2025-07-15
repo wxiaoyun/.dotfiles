@@ -22,10 +22,6 @@ setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt interactive_comments
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
-
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 export MANPAGER="nvim +Man!"
