@@ -87,6 +87,9 @@ eval "$(fnm env --use-on-cd --shell bash)"
 # go
 export PATH=$PATH:"$HOME/go/bin"
 
+# rust
+. "$HOME/.cargo/env"
+
 export CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"

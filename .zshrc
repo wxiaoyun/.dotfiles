@@ -24,7 +24,7 @@ setopt interactive_comments
 
 export LANG=en_US.UTF-8
 export EDITOR=nvim
-export MANPAGER='nvim +Man!'
+export MANPAGER="nvim +Man!"
 
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
