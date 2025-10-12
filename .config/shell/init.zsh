@@ -1,3 +1,9 @@
+export GOBIN=$HOME/go/bin
+export PATH=$PATH:$GOBIN
+
+export ZVM_INSTALL=$HOME/.zvm/bin
+export PATH=$PATH:$ZVM_INSTALL
+
 source <(fzf --zsh)
 
 eval "$(zoxide init zsh)"

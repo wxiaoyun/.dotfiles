@@ -26,9 +26,6 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export MANPAGER="nvim +Man!"
 
-export GOBIN=$HOME/go/bin
-export PATH=$PATH:$GOBIN
-
 # zim config manager
 source "${CONFIG_HOME}/shell/zim.sh"
 
