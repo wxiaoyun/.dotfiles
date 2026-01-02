@@ -12,3 +12,4 @@ window-height = 36
 window-width = 120
 
 shell-integration-features = sudo
+keybind = shift+enter=text:\x1b\r
