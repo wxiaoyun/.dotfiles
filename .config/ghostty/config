@@ -12,4 +12,8 @@ window-height = 36
 window-width = 120
 
 shell-integration-features = sudo
+
 keybind = shift+enter=text:\x1b\r
+keybind = super+shift+w=close_tab
+keybind = alt+super+arrow_left=previous_tab
+keybind = alt+super+arrow_right=next_tab
