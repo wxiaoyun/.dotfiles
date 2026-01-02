@@ -6,6 +6,8 @@ export PATH=$PATH:$ZVM_INSTALL
 
 source <(fzf --zsh)
 
+eval $(thefuck --alias)
+
 eval "$(zoxide init zsh)"
 
 eval "$(fnm env --use-on-cd --shell zsh)"
