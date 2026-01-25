@@ -5,14 +5,14 @@ zmodule input
 # Utility aliases and functions. Adds colour to ls, grep and less.
 zmodule utility
 
-zmodule zsh-users/zsh-completions --fpath src
+# Super charge auto completions + fzf tab
 zmodule completion
+zmodule zsh-users/zsh-completions --fpath src
+zmodule Aloxaf/fzf-tab
 
 zmodule zdharma-continuum/fast-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-history-substring-search
 
-zmodule pabloariasal/zfm
-zmodule Aloxaf/fzf-tab
-
-zmodule romkatv/powerlevel10k
+# Command line prompt
+zmodule romkatv/powerlevel10k --use degit
