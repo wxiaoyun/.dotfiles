@@ -1,4 +1,6 @@
-fastfetch # Display system information
+eval "$(mise activate zsh)"
+
+fastfetch
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -7,7 +9,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# zsh configs
 HISTSIZE=5000
 HISTFILE=~/.cache/zsh/history
 SAVEHIST=$HISTSIZE
@@ -22,17 +23,7 @@ setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt interactive_comments
 
-export LANG=en_US.UTF-8
-export EDITOR=nvim
-export MANPAGER="nvim +Man!"
-
-# zim config manager
 source "${CONFIG_HOME}/shell/zim.sh"
-
-OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
-[ -s "${OS_CONFIG}" ] && source "${OS_CONFIG}"
-
-source "${CONFIG_HOME}/shell/alias.sh"
 source "${CONFIG_HOME}/shell/init.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

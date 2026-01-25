@@ -1,0 +1,44 @@
+[settings]
+cache_prune_age = "7d"
+
+[tools]
+# Programming Languages
+node = "latest"
+bun = "latest"
+npm = "latest"
+pnpm = "latest"
+python = "latest"
+java = { version = "openjdk-17" }
+go = "latest"
+opam = "latest"
+rust = "latest"
+zig = "latest"
+
+# Utilities
+1password = "latest"
+dua = "latest"
+eza = "latest"
+tmux = "latest"
+neovim = "latest"
+fastfetch = "latest"
+fzf = "latest"
+zoxide = "latest"
+
+[env]
+LANG = "en_US.UTF-8"
+EDITOR = "nvim"
+MANPAGER = "nvim +Man!"
+
+[shell_alias]
+ls = "eza --color --icons --group-directories-first"
+cd = "z"
+mv = "mv -iv"
+rm = "rm -I"
+grep = "grep --color=always"
+mx = "mise exec --"
+pn = "pnpm"
+
+srcpy = "source .venv/bin/activate"
+lla = "ls -lah"
+cdc = "cd ~/code"
+vpnsoc = "sudo openfortivpn webvpn.comp.nus.edu.sg --username=e0702008"

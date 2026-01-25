@@ -1,22 +1,11 @@
-export GOBIN=$HOME/go/bin
-export PATH=$PATH:$GOBIN
-
-export ZVM_INSTALL=$HOME/.zvm/bin
-export PATH=$PATH:$ZVM_INSTALL
+OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
+[ -s "${OS_CONFIG}" ] && source "${OS_CONFIG}"
 
 source <(fzf --zsh)
 
-eval $(thefuck --alias)
-
 eval "$(zoxide init zsh)"
 
-eval "$(fnm env --use-on-cd --shell zsh)"
-
 eval "$(rustup completions zsh)"
-
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-fi
 
 # This is useful if you're using opam as it adds:
 #   - the correct directories to the PATH
