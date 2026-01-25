@@ -8,7 +8,7 @@ allowing you to easily symlink configuration files to your home directory.
 ### Clone this repository
 
 ```bash
-git clone --recursive https://github.com/ForAeons/.dotfiles.git
+git clone --recursive https://github.com/wxiaoyun/.dotfiles.git
 ```
 
 ### Install Stow
@@ -45,3 +45,12 @@ git clone --recursive https://github.com/ForAeons/.dotfiles.git
 
 This will create the necessary symbolic links in your home directory to the
 files managed within this dotfiles repository.
+
+## Requirements:
+
+- [Mise](https://mise.jdx.dev/)
+  - For managing tools, programming languages, etc.
+  - Run `mise install` to install the tools and programming languages.
+- [Zim](https://zimfw.sh/docs/)
+  - Managing Zsh plugins and configuration. Improves Zsh experience with prompts, auto completions, etc.
+  - Run `zimfw install` to install the plugins.
