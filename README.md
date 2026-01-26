@@ -39,8 +39,11 @@ git clone --recursive https://github.com/wxiaoyun/.dotfiles.git
    to symlink your git configuration, navigate to the repository's root and run:
 
    ```sh
-   cd ~/.dotfiles # cd to the directory where you cloned your dotfiles
-   stow --adopt .
+   # verify the symlinks are correct
+   stow -v -t ~ . --simulate
+
+   # run stow to create the symlinks
+   stow -t ~ .
    ```
 
 This will create the necessary symbolic links in your home directory to the
