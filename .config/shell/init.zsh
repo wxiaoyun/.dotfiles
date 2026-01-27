@@ -1,5 +1,3 @@
-source <(fzf --zsh)
-
 eval "$(zoxide init zsh)"
 
 eval "$(rustup completions zsh)"
