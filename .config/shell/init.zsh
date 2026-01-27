@@ -1,6 +1,3 @@
-OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
-[ -s "${OS_CONFIG}" ] && source "${OS_CONFIG}"
-
 source <(fzf --zsh)
 
 eval "$(zoxide init zsh)"

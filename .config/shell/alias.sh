@@ -1,0 +1,12 @@
+alias ls="eza --color --icons --group-directories-first"
+alias cd="z"
+alias mv="mv -iv"
+alias rm="rm -I"
+alias grep="grep --color=always"
+alias mx="mise exec --"
+alias pn="pnpm"
+
+alias srcpy="source .venv/bin/activate"
+alias lla="ls -lah"
+alias cdc="cd ~/code"
+alias vpnsoc="sudo openfortivpn webvpn.comp.nus.edu.sg --username=e0702008"

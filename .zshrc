@@ -23,7 +23,11 @@ setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt interactive_comments
 
+OS_CONFIG="${CONFIG_HOME}/shell/${OS}.sh"
+[ -s "${OS_CONFIG}" ] && source "${OS_CONFIG}"
+
 source "${CONFIG_HOME}/shell/zim.sh"
+source "${CONFIG_HOME}/shell/alias.sh"
 source "${CONFIG_HOME}/shell/init.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
