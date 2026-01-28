@@ -8,16 +8,16 @@ zmodule utility
 # Even better CLI integration
 zmodule exa
 zmodule fzf
+zmodule Aloxaf/fzf-tab
+
+# Super charge auto completions
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
 
 # Zsh shell enhancements
 zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-history-substring-search
 zmodule zdharma-continuum/fast-syntax-highlighting
-
-# Super charge auto completions + fzf tab
-zmodule completion
-zmodule zsh-users/zsh-completions --fpath src
-zmodule Aloxaf/fzf-tab
 
 # Command line prompt
 zmodule romkatv/powerlevel10k --use degit

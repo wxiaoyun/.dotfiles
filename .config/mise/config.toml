@@ -17,6 +17,7 @@ npm = "latest"
 pnpm = "latest"
 
 # Utilities
+bat = "latest"
 dua = "latest"
 eza = "latest"
 tmux = "latest"
