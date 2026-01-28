@@ -5,8 +5,6 @@ cache_prune_age = "7d"
 # Programming Languages
 node = "latest"
 bun = "latest"
-npm = "latest"
-pnpm = "latest"
 python = "latest"
 java = { version = "openjdk-17" }
 go = "latest"
@@ -14,13 +12,19 @@ opam = "latest"
 rust = "latest"
 zig = "latest"
 
+# Package managers
+npm = "latest"
+pnpm = "latest"
+
 # Utilities
-1password = "latest"
 dua = "latest"
 eza = "latest"
 tmux = "latest"
 ripgrep = "latest"
-neovim = "latest"
 fastfetch = "latest"
 fzf = "latest"
 zoxide = "latest"
+
+# Applications
+1password = "latest"
+neovim = "latest"

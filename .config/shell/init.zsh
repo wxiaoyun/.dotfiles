@@ -1,3 +1,5 @@
+export PATH="$HOME/.local/bin:$PATH"
+
 eval "$(zoxide init zsh)"
 
 eval "$(rustup completions zsh)"
