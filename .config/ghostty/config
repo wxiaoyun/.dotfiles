@@ -2,7 +2,7 @@ font-family = Iosevka Nerd Font Mono
 font-size = 14
 font-feature = -calt
 
-theme = tokyonight
+theme = TokyoNight
 
 background-opacity = 0.8
 background-blur-radius = 20
