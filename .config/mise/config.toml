@@ -3,9 +3,6 @@ cache_prune_age = "7d"
 
 [tools]
 # Programming Languages
-node = "latest"
-bun = "latest"
-python = "latest"
 java = { version = "openjdk-17" }
 go = "latest"
 opam = "latest"
@@ -15,17 +12,3 @@ zig = "latest"
 # Package managers
 npm = "latest"
 pnpm = "latest"
-
-# Utilities
-bat = "latest"
-dua = "latest"
-eza = "latest"
-tmux = "latest"
-ripgrep = "latest"
-fastfetch = "latest"
-fzf = "latest"
-zoxide = "latest"
-
-# Applications
-1password = "latest"
-neovim = "latest"
