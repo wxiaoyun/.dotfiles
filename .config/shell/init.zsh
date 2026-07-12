@@ -10,3 +10,5 @@ eval "$(rustup completions zsh)"
 # This section can be safely removed at any time if needed.
 [[ ! -r '$HOME/.opam/opam-init/init.zsh' ]] || source '$HOME/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 eval $(opam env)
+
+export SSH_AUTH_SOCK="$HOME/.ssh/proton-pass-agent.sock"
