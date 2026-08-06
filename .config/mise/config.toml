@@ -1,14 +1,2 @@
 [settings]
 cache_prune_age = "7d"
-
-[tools]
-# Programming Languages
-java = { version = "openjdk-17" }
-go = "latest"
-opam = "latest"
-rust = "latest"
-zig = "latest"
-
-# Package managers
-npm = "latest"
-pnpm = "latest"
