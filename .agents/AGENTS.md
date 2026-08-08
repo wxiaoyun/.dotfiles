@@ -56,34 +56,6 @@ Rust: `tracing::{info, warn, error}`. Match existing project conventions.
 - **Title format**: Use `<type>: <title>` (e.g., `fix: resolve login bug`,
   `feat: add search bar`). Do NOT use parenthesized subtypes like `fix(auth): ...`.
 
-# Tool Use
-
-## Rust Token Killer
-
-Every Shell tool command: wrap with `rtk` subcommand. Cursor has no rtk hook — you must prefix manually every time.
-
-Session start (once per chat): Read `$HOME/.claude/RTK.md`.
-
-Prefix mapping:
-- git …          → rtk git …
-- gh …           → rtk gh …
-- rg … / grep …  → rtk rg … / rtk grep …
-- ls …           → rtk ls …
-- cat/head/tail file → rtk read <path>
-- find …         → rtk find …
-- diff …         → rtk diff …
-- docker …       → rtk docker …
-- kubectl …      → rtk kubectl …
-- pnpm/npm test/build → rtk pnpm … or rtk test …
-- cargo test …   → rtk test cargo test …
-
-Exceptions:
-- pure shell with no command output (cd, export, mkdir, true) — no rtk
-- need full unfiltered output → rtk proxy <original command>
-- MCP / non-Shell tools — rtk not apply
-
-If `rtk gain` fails: wrong binary installed (Rust Type Kit collision). Check `which rtk` = `/opt/homebrew/bin/rtk`.<D-b>
-
 ## CRITICAL: Efficient JSON Reading with `jq`
 
 **YOU MUST USE `jq` to extract specific data from JSON files instead of reading entire files.**
@@ -114,7 +86,7 @@ jq '.nodes["<node_id>"].calls' <ANALYSIS_DIR>/dependency_tree.json
 
 ## Caveman
 
-Session start + every user message: FIRST action = Read `$HOME/.agents/skills/caveman/SKILL.md` with Read tool. Do this before any user-facing reply, tool plan, or investigation — including meta/testing/questions.
+Session start: FIRST action = Read `$HOME/.agents/skills/caveman/SKILL.md` with Read tool. Do this before any user-facing reply, tool plan, or investigation — including meta/testing/questions.
 
 Then follow skill exactly for all responses. Default intensity: full.
 
