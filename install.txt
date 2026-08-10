@@ -1,0 +1,22 @@
+# CLI tools
+fzf
+zoxide
+eza
+fastfetch
+git
+dua-cli
+jq
+herdr
+stow
+rtk
+
+# Editors
+neovim
+
+# Languages & toolchains
+node
+python
+rustup
+
+# Fonts (cask)
+font-iosevka-nerd-font

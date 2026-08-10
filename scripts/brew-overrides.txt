@@ -1,0 +1,2 @@
+# Cask name matches canonical key
+font-iosevka-nerd-font=font-iosevka-nerd-font
