@@ -23,6 +23,9 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-\.tests
-\.DS_Store
+.*\.DS_Store
+
 ^/scripts$
+tests
+
+install.txt
