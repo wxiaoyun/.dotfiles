@@ -2,6 +2,7 @@
 fzf
 zoxide
 eza
+ripgrep
 fastfetch
 git
 dua-cli
