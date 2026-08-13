@@ -70,6 +70,14 @@ next_workspace = "prefix+shift+j"
 # width = "80%"
 # height = "80%"
 
+[[keys.command]]
+key = "prefix+t"
+type = "popup"
+command = "exec \"${SHELL:-sh}\""
+description = "open scratch terminal"
+width = "80%"
+height = "80%"
+
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
 # [keys.indexed]
@@ -79,3 +87,6 @@ next_workspace = "prefix+shift+j"
 
 # [worktrees]
 # directory = "~/.herdr/worktrees"
+
+[ui.toast]
+delivery = "system"
