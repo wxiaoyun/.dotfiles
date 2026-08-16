@@ -1,0 +1,100 @@
+#!/usr/bin/env -S usage exec python3
+# [USAGE] name "codexp"
+# [USAGE] bin "codexp"
+# [USAGE] about "Wrapper for codex to apply dynamic TOML configuration overrides: ~/.codex/override/<override>.toml"
+# [USAGE] arg "override" help="The config override name (e.g., deepseek)"
+# [USAGE] arg "[args]..." help="Arguments to pass through to codex"
+
+import json
+import os
+import shlex
+import sys
+from pathlib import Path
+
+import tomllib
+
+
+def flatten_dict(d, parent_key=""):
+    """Flattens a nested dictionary into dotted paths (e.g., foo.bar.baz)."""
+    items = []
+    for k, v in d.items():
+        new_key = f"{parent_key}.{k}" if parent_key else k
+        if isinstance(v, dict):
+            items.extend(flatten_dict(v, new_key).items())
+        else:
+            items.append((new_key, v))
+    return dict(items)
+
+
+def format_toml_value(val):
+    """
+    Serializes Python types into TOML-compatible strings for the CLI.
+    JSON output is a safe subset for TOML inline primitives (strings, ints, lists).
+    """
+    if isinstance(val, bool):
+        return str(val).lower()  # TOML uses lowercase 'true'/'false'
+
+    # Expand tildes in string paths (e.g. "~/.codex/models.json" -> "/Users/name/.codex/...")
+    if isinstance(val, str) and val.startswith("~/"):
+        val = os.path.expanduser(val)
+
+    return json.dumps(val)
+
+
+def sanity_check_print(cmd: list[str], file=sys.stderr):
+    # Create a safe version of the command for logging, redacting the bearer token
+    safe_cmd = [
+        f'{arg.split("=")[0]}="<redacted>"'
+        if "experimental_bearer_token" in arg
+        else arg
+        for arg in cmd
+    ]
+    print(f"Sanity check: {' '.join(safe_cmd)}", file=file)
+
+
+def main():
+    # usage handles missing arguments automatically based on the # [USAGE] spec,
+    # but we add a safety check just in case.
+    override_name = os.environ.get("usage_override")
+    if not override_name:
+        sys.exit("Error: missing override argument. See `codexp --help`.")
+
+    # usage passes variadic args as a single space-separated, shell-escaped string.
+    # shlex.split safely turns it back into a list of arguments.
+    raw_args = os.environ.get("usage_args", "")
+    remaining_args = shlex.split(raw_args)
+
+    override_file = Path.home() / ".codex" / "override" / f"{override_name}.toml"
+
+    # 1. Check existence
+    if not override_file.exists():
+        sys.exit(f"Error: Override config not found at {override_file}")
+
+    # 2. Parse TOML
+    try:
+        with open(override_file, "rb") as f:
+            config = tomllib.load(f)
+    except Exception as e:
+        sys.exit(f"Error parsing TOML in {override_file}: {e}")
+
+    # 3. Format into -c arguments
+    flat_config = flatten_dict(config)
+
+    cmd = ["codex"]
+    for key, value in flat_config.items():
+        formatted_val = format_toml_value(value)
+        cmd.extend(["-c", f"{key}={formatted_val}"])
+
+    # Append the rest of the arguments passed to codexp
+    cmd.extend(remaining_args)
+
+    # 4. Execute codex, replacing the current process
+    try:
+        sanity_check_print(cmd, file=sys.stderr)
+        os.execvp("codex", cmd)
+    except FileNotFoundError:
+        sys.exit("Error: 'codex' command not found in PATH.")
+
+
+if __name__ == "__main__":
+    main()
