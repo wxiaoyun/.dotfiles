@@ -7,4 +7,6 @@ eval "$(herdr completions zsh)"
 . "$HOME/.cargo/env"
 eval "$(rustup completions zsh)"
 
+source <(usage g completion-init zsh)
+
 export SSH_AUTH_SOCK="$HOME/.ssh/proton-pass-agent.sock"

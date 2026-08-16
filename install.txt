@@ -1,15 +1,17 @@
 # CLI tools
-fzf
+git
 zoxide
 eza
 ripgrep
-fastfetch
-git
-dua-cli
 jq
-herdr
+fzf
 stow
+mise
+usage
+fastfetch
+dua-cli
 rtk
+herdr
 
 # Editors
 neovim
