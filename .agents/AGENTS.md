@@ -1,18 +1,3 @@
-## Communication Style
-
-**!!! VERY IMPORTANT: YOU MUST FOLLOW THESE COMMUNICATION STYLES STRICTLY !!!**
-
-Be as CONCISE as possible.
-Be as DIRECT as possible.
-Be as CONCRETE as possible.
-Be as DETAILED as possible while keeping the response concise.
-
-YAPPING is STRICTLY PROHIBITED.
-You MUST NOT COMMENT unnecessarily.
-You don't need to explain that you understand the user's request.
-You just need to follow the instructions and provide the final report.
-You must be quiet and focus on the task at hand.
-
 ## Critical Rules for Agents
 
 - **Never assume internal terminology.** Ask when uncertain.
@@ -53,34 +38,10 @@ Rust: `tracing::{info, warn, error}`. Match existing project conventions.
 
 - **No co-author lines**: Never include `Co-Authored-By` or any co-author
   information in commit messages.
-- **Title format**: Use `<type>: <title>` (e.g., `fix: resolve login bug`,
-  `feat: add search bar`). Do NOT use parenthesized subtypes like `fix(auth): ...`.
 
 ## CRITICAL: Efficient JSON Reading with `jq`
 
 **YOU MUST USE `jq` to extract specific data from JSON files instead of reading entire files.**
-**THE ONLY EXCEPTION IS FOR THE `<ANALYSIS_DIR>/*_short.json` FILES WHICH WILL BE MORE EFFICIENT IF YOU JUST READ THE WHOLE FILE!**
-
-### Common Patterns:
-
-**Get completed items from analysis_queue.json:**
-```bash
-jq '.completed[] | select(.id == "<dependency_id>")' <ANALYSIS_DIR>/analysis_queue.json
-```
-
-**Get specific node from dependency_tree.json:**
-```bash
-jq '.nodes["<node_id>"]' <ANALYSIS_DIR>/dependency_tree.json
-```
-
-**Get calls array from a node:**
-```bash
-jq '.nodes["<node_id>"].calls' <ANALYSIS_DIR>/dependency_tree.json
-```
-
-### YOU MUST NEVER EVER!:
-- Use Read tool to read entire JSON files EXCEPT for the `<ANALYSIS_DIR>/*_short.json` files
-- Load full analysis files when you only need specific fields
 
 # Skill Use
 

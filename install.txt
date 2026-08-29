@@ -23,3 +23,6 @@ rustup
 
 # Fonts (cask)
 font-iosevka-nerd-font
+
+# AI
+pi-coding-agent
