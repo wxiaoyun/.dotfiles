@@ -1,4 +1,4 @@
-## Critical Rules for Agents
+# Critical Rules for Agents
 
 - **Never assume internal terminology.** Ask when uncertain.
 - **Always verify docs against code.** Every document must be cross-checked
@@ -19,8 +19,6 @@
 
 Use logging extensively to help debugging, especially at fallible places to pinpoint point of failure.
 
-When writing or modifying code (especially services, clients, orchestrators, cron jobs):
-
 1. **Log at failure sites with ERROR** — not only WARN. Final failures after retries must be ERROR so log filters surface them.
 2. **Log before external calls with INFO** — include method, URL/path (no secrets), and context (job_id, target, stage, idc, cluster).
 3. **Log at every fallible boundary** — API calls, config parse, Redis/DB I/O, mapping/validation, retry exhaustion.
@@ -32,27 +30,21 @@ When writing or modifying code (especially services, clients, orchestrators, cro
 
 Default: add logging when touching fallible code even if user did not ask — debugging production issues depends on it.
 
-Rust: `tracing::{info, warn, error}`. Match existing project conventions.
-
 ## Commit Message Preferences
 
 - **No co-author lines**: Never include `Co-Authored-By` or any co-author
   information in commit messages.
 
-## CRITICAL: Efficient JSON Reading with `jq`
+## Tool use
+
+### CRITICAL: Efficient JSON Reading with `jq`
 
 **YOU MUST USE `jq` to extract specific data from JSON files instead of reading entire files.**
 
-# Skill Use
+## Skill Use
 
-## Caveman
+### Caveman
 
 Session start: FIRST action = Read `$HOME/.agents/skills/caveman/SKILL.md` with Read tool. Do this before any user-facing reply, tool plan, or investigation — including meta/testing/questions.
 
 Then follow skill exactly for all responses. Default intensity: full.
-
-Exceptions (no caveman): user says "stop caveman" / "normal mode"; OR task is written documentation (README, design doc, PR body, blog).
-
-On conflict with other style rules (blog prose, tables, pleasantries), caveman wins unless exception above applies.
-
-Do not announce caveman mode. Do not answer in normal prose then add caveman recap.
