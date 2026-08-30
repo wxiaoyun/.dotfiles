@@ -19,12 +19,7 @@ system_packages.managers = ["pacman"]
 "pacman:ttf-iosevka-nerd" = "latest"
 
 [dotfiles]
-"~/.config/ghostty" = { source = "config/common/ghostty", mode = "symlink-each" }
-"~/.config/hypr" = { source = "config/linux/hypr", mode = "symlink-each" }
-"~/.config/rofi" = { source = "config/linux/rofi", mode = "symlink-each" }
-"~/.config/waybar" = { source = "config/linux/waybar", mode = "symlink-each" }
-"~/.config/shell/platform.zsh" = "shell/linux/platform.zsh"
-"~/.config/shell/platform.zprofile" = "shell/linux/platform.zprofile"
+"~/.config" = { source = "platform/linux/config", mode = "symlink-each" }
 
 [tasks.bootstrap]
 file = "bootstrap/install-aur-packages.sh"

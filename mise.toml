@@ -30,12 +30,11 @@ cache_prune_age = "7d"
 "~/.tmux.conf" = "dotfiles/home/tmux.conf"
 "~/.agents" = { source = "dotfiles/agents", mode = "symlink-each" }
 "~/.local/bin" = { source = "dotfiles/local-bin", mode = "symlink-each" }
-"~/.config" = { source = "config/common", mode = "symlink-each", exclude = [
+"~/.config" = { source = "dotfiles/config", mode = "symlink-each", exclude = [
   "nvim",
   "ghostty",
 ] }
-"~/.config/nvim" = "config/common/nvim"
-"~/.config/shell" = { source = "shell/common", mode = "symlink-each" }
+"~/.config/nvim" = "dotfiles/config/nvim"
 "~/.config/mise/config.toml" = "mise.toml"
 
 [bootstrap.hooks.pre-dotfiles]
