@@ -2,4 +2,4 @@
 system_packages.managers = ["brew", "brew-cask"]
 
 [dotfiles]
-"~/.config" = { source = "platform/linux/config", mode = "symlink-each" }
+"~/.config" = { source = "platform/macos/config", mode = "symlink-each" }
