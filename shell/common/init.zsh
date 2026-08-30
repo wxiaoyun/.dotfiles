@@ -1,5 +1,7 @@
 export PATH="$HOME/.local/bin:$PATH"
 
+eval "$(mise activate zsh)"
+
 eval "$(zoxide init zsh)"
 
 eval "$(herdr completions zsh)"
@@ -8,5 +10,3 @@ eval "$(herdr completions zsh)"
 eval "$(rustup completions zsh)"
 
 source <(usage g completion-init zsh)
-
-export SSH_AUTH_SOCK="$HOME/.ssh/proton-pass-agent.sock"

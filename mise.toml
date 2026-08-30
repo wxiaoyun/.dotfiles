@@ -35,7 +35,6 @@ cache_prune_age = "7d"
 "~/.config/shell" = { source = "shell/common", mode = "symlink-each" }
 "~/.config/mise/config.toml" = "mise.toml"
 
-[bootstrap.mise_shell_activate]
-zshrc = "activate"
-zprofile = "shims"
+[bootstrap.hooks.pre-dotfiles]
+run = "mkdir -p \"$HOME/.local/bin\""
 

@@ -18,8 +18,10 @@ grep -F 'system_packages.managers = ["pacman"]' "$ROOT/mise.linux.toml" >/dev/nu
 grep -F 'system_packages.managers = ["brew"]' "$ROOT/mise.remote_box.toml" >/dev/null || fail 'remote_box Linuxbrew selection missing'
 grep -F 'file = "bootstrap/install-aur-packages.sh"' "$ROOT/mise.linux.toml" >/dev/null || fail 'Linux AUR bootstrap task missing'
 ! grep -F '[tasks.bootstrap]' "$ROOT/mise.toml" >/dev/null || fail 'AUR bootstrap task must not run on macOS'
+! grep -F '[bootstrap.mise_shell_activate]' "$ROOT/mise.toml" >/dev/null || fail 'shell activation conflicts with managed shell symlinks'
 
 grep -F '"~/.config" = { source = "config/common", mode = "symlink-each", exclude = ["nvim"] }' "$ROOT/mise.toml" >/dev/null || fail 'common config tree mapping missing'
+grep -F 'run = "mkdir -p \"$HOME/.local/bin\""' "$ROOT/mise.toml" >/dev/null || fail 'local bin pre-dotfiles directory hook missing'
 grep -F '"~/.config/ghostty" = { source = "config/macos/ghostty", mode = "symlink-each" }' "$ROOT/mise.macos.toml" >/dev/null || fail 'macOS Ghostty mapping missing'
 grep -F '"~/.config/hypr" = { source = "config/linux/hypr", mode = "symlink-each" }' "$ROOT/mise.linux.toml" >/dev/null || fail 'Linux Hyprland mapping missing'
 
@@ -32,6 +34,9 @@ grep -F '"~/.config/hypr" = { source = "config/linux/hypr", mode = "symlink-each
 ! grep -qi 'stow' "$ROOT/README.md" || fail 'README still references Stow'
 
 grep -F 'platform.zsh' "$ROOT/dotfiles/home/zshrc" >/dev/null || fail 'stable shell platform source missing'
+grep -F 'eval "$(mise activate zsh)"' "$ROOT/shell/common/init.zsh" >/dev/null || fail 'zsh activation missing from shared initialization'
+! grep -F 'eval "$(mise activate zsh)"' "$ROOT/dotfiles/home/zshrc" >/dev/null || fail 'zsh activation must not remain in zshrc'
 grep -F 'platform.zprofile' "$ROOT/dotfiles/home/zprofile" >/dev/null || fail 'stable zprofile platform source missing'
+grep -F 'eval "$(mise activate zsh --shims)"' "$ROOT/dotfiles/home/zprofile" >/dev/null || fail 'zprofile shims activation missing from managed shell source'
 
 printf 'PASS mise bootstrap migration configuration\n'
