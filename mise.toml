@@ -1,0 +1,41 @@
+[settings]
+cache_prune_age = "7d"
+
+[bootstrap.packages]
+"brew:git" = "latest"
+"brew:zoxide" = "latest"
+"brew:eza" = "latest"
+"brew:ripgrep" = "latest"
+"brew:jq" = "latest"
+"brew:fzf" = "latest"
+"brew:mise" = "latest"
+"brew:usage" = "latest"
+"brew:fastfetch" = "latest"
+"brew:dua-cli" = "latest"
+"brew:herdr" = "latest"
+"brew:rtk" = "latest"
+"brew:neovim" = "latest"
+"brew:node" = "latest"
+"brew:python@3.14" = "latest"
+"brew:rustup" = "latest"
+"brew:pi-coding-agent" = "latest"
+
+[dotfiles]
+"~/.bash_profile" = "dotfiles/home/bash_profile"
+"~/.bashrc" = "dotfiles/home/bashrc"
+"~/.zshrc" = "dotfiles/home/zshrc"
+"~/.zprofile" = "dotfiles/home/zprofile"
+"~/.zshenv" = "dotfiles/home/zshenv"
+"~/.p10k.zsh" = "dotfiles/home/p10k.zsh"
+"~/.tmux.conf" = "dotfiles/home/tmux.conf"
+"~/.agents" = { source = "dotfiles/agents", mode = "symlink-each" }
+"~/.local/bin" = { source = "dotfiles/local-bin", mode = "symlink-each" }
+"~/.config" = { source = "config/common", mode = "symlink-each", exclude = ["nvim"] }
+"~/.config/nvim" = "config/common/nvim"
+"~/.config/shell" = { source = "shell/common", mode = "symlink-each" }
+"~/.config/mise/config.toml" = "mise.toml"
+
+[bootstrap.mise_shell_activate]
+zshrc = "activate"
+zprofile = "shims"
+

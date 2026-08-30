@@ -1,0 +1,29 @@
+[settings]
+system_packages.managers = ["pacman"]
+
+[bootstrap.packages]
+"pacman:git" = "latest"
+"pacman:zoxide" = "latest"
+"pacman:eza" = "latest"
+"pacman:ripgrep" = "latest"
+"pacman:jq" = "latest"
+"pacman:fzf" = "latest"
+"pacman:mise" = "latest"
+"pacman:usage" = "latest"
+"pacman:fastfetch" = "latest"
+"pacman:dua" = "latest"
+"pacman:neovim" = "latest"
+"pacman:nodejs" = "latest"
+"pacman:python" = "latest"
+"pacman:rustup" = "latest"
+"pacman:ttf-iosevka-nerd" = "latest"
+
+[dotfiles]
+"~/.config/hypr" = { source = "config/linux/hypr", mode = "symlink-each" }
+"~/.config/rofi" = { source = "config/linux/rofi", mode = "symlink-each" }
+"~/.config/waybar" = { source = "config/linux/waybar", mode = "symlink-each" }
+"~/.config/shell/platform.zsh" = "shell/linux/platform.zsh"
+"~/.config/shell/platform.zprofile" = "shell/linux/platform.zprofile"
+
+[tasks.bootstrap]
+file = "bootstrap/install-aur-packages.sh"

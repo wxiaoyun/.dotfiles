@@ -1,4 +1,4 @@
-[submodule ".config/nvim"]
-	path = .config/nvim
+[submodule "dotfiles/config/nvim"]
+	path = config/common/nvim
 	url = https://github.com/wxiaoyun/neovim_config.git
 	branch = master

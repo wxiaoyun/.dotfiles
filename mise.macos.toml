@@ -1,0 +1,7 @@
+[settings]
+system_packages.managers = ["brew", "brew-cask"]
+
+[dotfiles]
+"~/.config/ghostty" = { source = "config/macos/ghostty", mode = "symlink-each" }
+"~/.config/shell/platform.zsh" = "shell/macos/platform.zsh"
+"~/.config/shell/platform.zprofile" = "shell/macos/platform.zprofile"

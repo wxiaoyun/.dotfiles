@@ -1,59 +1,35 @@
 # Dotfiles Repository
 
-This repository contains dotfiles managed with GNU Stow,
-allowing you to easily symlink configuration files to your home directory.
+This repository uses [mise bootstrap](https://mise.jdx.dev/bootstrap.html) for dotfiles, host packages, tools, and shell activation.
 
-## Installation
+## Bootstrap
 
-### Clone this repository
-
-```bash
-git clone --recursive https://github.com/wxiaoyun/.dotfiles.git
+```sh
+git clone --recursive https://github.com/wxiaoyun/dotfiles.git
+cd dotfiles
+mise trust
+mise bootstrap plan
+mise bootstrap dotfiles apply --dry-run --verbose
+mise bootstrap
 ```
 
-### Install Stow
+`mise bootstrap` selects Homebrew on macOS and Pacman on Arch Linux. Arch AUR packages install through a small idempotent bootstrap task.
 
-- **macOS**: Use Homebrew to install Stow.
+For Debian host using Linuxbrew profile:
 
-  ```sh
-  brew install stow
-  ```
+```sh
+mise -E remote_box bootstrap plan
+mise -E remote_box bootstrap
+```
 
-- **Arch Linux**: Use Pacman or any AUR helper to install Stow.
+## Safety and rollback
 
-  ```sh
-  pacman -S stow
-  ```
+Normal migration never uses `--force-dotfiles`. Resolve each dry-run conflict manually.
 
-- **Debian-Based Systems**: Use apt to install Stow.
+Preview removal of identifiable managed dotfiles:
 
-  ```sh
-  sudo apt install stow
-  ```
+```sh
+mise bootstrap dotfiles unapply --dry-run
+```
 
-### Configuration
-
-1. **Using Stow:**
-
-   Use Stow to create symbolic links in your home directory. For example,
-   to symlink your git configuration, navigate to the repository's root and run:
-
-   ```sh
-   # verify the symlinks are correct
-   stow -v -t ~ . --simulate
-
-   # run stow to create the symlinks
-   stow -t ~ .
-   ```
-
-This will create the necessary symbolic links in your home directory to the
-files managed within this dotfiles repository.
-
-## Requirements:
-
-- [Mise](https://mise.jdx.dev/)
-  - For managing tools, programming languages, etc.
-  - Run `mise install` to install the tools and programming languages.
-- [Zim](https://zimfw.sh/docs/)
-  - Managing Zsh plugins and configuration. Improves Zsh experience with prompts, auto completions, etc.
-  - Run `zimfw install` to install the plugins.
+Use `mise bootstrap status` to inspect applied, missing, and differing configuration.

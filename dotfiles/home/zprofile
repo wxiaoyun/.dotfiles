@@ -1,0 +1,3 @@
+# Login shells
+
+[ -s "${CONFIG_HOME}/shell/platform.zprofile" ] && source "${CONFIG_HOME}/shell/platform.zprofile"

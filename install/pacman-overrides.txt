@@ -1,8 +1,0 @@
-# Renamed packages
-node=nodejs
-font-iosevka-nerd-font=ttf-iosevka-nerd
-
-# AUR-only packages
-herdr=herdr-bin
-rtk=rtk-bin
-pi-coding-agent=pi-coding-agent-bin
