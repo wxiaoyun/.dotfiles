@@ -13,7 +13,7 @@ mise bootstrap dotfiles apply --dry-run --verbose
 mise bootstrap
 ```
 
-`mise bootstrap` selects Homebrew on macOS and Pacman on Arch Linux. Arch AUR packages install through a small idempotent bootstrap task.
+`mise bootstrap` selects Homebrew on macOS and Pacman on Arch Linux. Arch AUR packages are listed in `mise.linux.toml` and installed by its idempotent `bootstrap` task.
 
 For Debian host using Linuxbrew profile:
 

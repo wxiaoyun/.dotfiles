@@ -2,6 +2,7 @@
 system_packages.managers = ["pacman"]
 
 [bootstrap.packages]
+"pacman:base-devel" = "latest"
 "pacman:git" = "latest"
 "pacman:zoxide" = "latest"
 "pacman:eza" = "latest"
@@ -14,6 +15,7 @@ system_packages.managers = ["pacman"]
 "pacman:dua-cli" = "latest"
 "pacman:neovim" = "latest"
 "pacman:nodejs" = "latest"
+"pacman:npm" = "latest"
 "pacman:python" = "latest"
 "pacman:rustup" = "latest"
 "pacman:ttf-iosevka-nerd" = "latest"
@@ -21,5 +23,30 @@ system_packages.managers = ["pacman"]
 [dotfiles]
 "~/.config/**/platform*" = { source = "linux/config/**/platform*" }
 
+[vars]
+aur_packages = """
+herdr-bin
+rtk-bin
+pi-coding-agent-bin
+"""
+
 [tasks.bootstrap]
-file = "bootstrap/install-aur-packages.sh"
+description = "Install Arch AUR packages"
+run = '''
+#!/usr/bin/env sh
+set -eu
+
+if ! command -v yay >/dev/null 2>&1; then
+  printf '%s\n' '[mise_aur] stage=yay_install method=git_clone url=https://aur.archlinux.org/yay.git' >&2
+  tmpdir=$(mktemp -d)
+  trap 'rm -rf "$tmpdir"' EXIT HUP INT TERM
+  git clone https://aur.archlinux.org/yay.git "$tmpdir/yay"
+  (cd "$tmpdir/yay" && makepkg -si --noconfirm)
+fi
+
+aur_packages='{{ vars.aur_packages }}'
+set -f
+set -- $aur_packages
+printf '%s\n' "[mise_aur] stage=aur_install packages=$*" >&2
+yay -S --needed --noconfirm "$@"
+'''

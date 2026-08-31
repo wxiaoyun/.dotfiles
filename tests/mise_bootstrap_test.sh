@@ -4,7 +4,7 @@ set -eu
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 fail() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 
-for file in mise.toml .miserc.toml mise.macos.toml mise.linux.toml mise.remote_box.toml bootstrap/install-aur-packages.sh; do
+for file in mise.toml .miserc.toml mise.macos.toml mise.linux.toml mise.remote_box.toml; do
   [ -f "$ROOT/$file" ] || fail "missing $file"
 done
 
@@ -16,7 +16,9 @@ grep -F 'auto_env = true' "$ROOT/.miserc.toml" >/dev/null || fail 'auto_env is n
 grep -F 'system_packages.managers = ["brew", "brew-cask"]' "$ROOT/mise.macos.toml" >/dev/null || fail 'macOS manager selection missing'
 grep -F 'system_packages.managers = ["pacman"]' "$ROOT/mise.linux.toml" >/dev/null || fail 'Linux Pacman selection missing'
 grep -F 'system_packages.managers = ["brew"]' "$ROOT/mise.remote_box.toml" >/dev/null || fail 'remote_box Linuxbrew selection missing'
-grep -F 'file = "bootstrap/install-aur-packages.sh"' "$ROOT/mise.linux.toml" >/dev/null || fail 'Linux AUR bootstrap task missing'
+grep -F 'aur_packages = """' "$ROOT/mise.linux.toml" >/dev/null || fail 'Linux AUR package list missing'
+grep -F 'yay -S --needed --noconfirm "$@"' "$ROOT/mise.linux.toml" >/dev/null || fail 'Linux AUR bootstrap task missing'
+[ ! -e "$ROOT/bootstrap/install-aur-packages.sh" ] || fail 'legacy AUR bootstrap script remains'
 ! grep -F '[tasks.bootstrap]' "$ROOT/mise.toml" >/dev/null || fail 'AUR bootstrap task must not run on macOS'
 ! grep -F '[bootstrap.mise_shell_activate]' "$ROOT/mise.toml" >/dev/null || fail 'shell activation conflicts with managed shell symlinks'
 
