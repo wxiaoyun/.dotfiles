@@ -54,3 +54,36 @@ ln -sf ~/.agents/AGENTS.md ~/.pi/agent/AGENTS.md
 run = """
 rtk init -g --agent pi
 """
+
+[vars]
+agent_skills = """
+JuliusBrussee/caveman --skill caveman
+obra/superpowers --skill brainstorming --skill executing-plans --skill subagent-driven-development --skill writing-plans
+"""
+pi_packages = """
+npm:pi-web-access
+npm:pi-subagents
+git:github.com/DietrichGebert/ponytail
+"""
+
+[tasks.os-bootstrap]
+hide = true
+run = ":"
+
+[tasks.bootstrap]
+description = "Install shared agent skills and Pi packages"
+depends = ["os-bootstrap"]
+run = [
+  { task = "add-universal-skills" },
+  { task = "add-pi-extension" },
+]
+
+[tasks.add-universal-skills]
+description = "Install shared agent skills"
+run = "{{ cwd | quote }}/scripts/add-universal-skills.sh"
+env = { AGENT_SKILLS = "{{ vars.agent_skills }}" }
+
+[tasks.add-pi-extension]
+description = "Install Pi packages"
+run = "{{ cwd | quote }}/scripts/add-pi-extension.sh"
+env = { PI_PACKAGES = "{{ vars.pi_packages }}" }

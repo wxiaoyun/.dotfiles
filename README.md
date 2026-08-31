@@ -13,7 +13,7 @@ mise bootstrap dotfiles apply --dry-run --verbose
 mise bootstrap
 ```
 
-`mise bootstrap` selects Homebrew on macOS and Pacman on Arch Linux. Arch AUR packages are listed in `mise.linux.toml` and installed by its idempotent `bootstrap` task.
+`mise bootstrap` selects Homebrew on macOS and Pacman on Arch Linux. Arch AUR packages are listed in `mise.linux.toml`. Configured agent skills install to `~/.agents/skills`; Pi packages install to its global settings.
 
 For Debian host using Linuxbrew profile:
 

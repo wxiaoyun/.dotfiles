@@ -30,23 +30,8 @@ rtk-bin
 pi-coding-agent-bin
 """
 
-[tasks.bootstrap]
+[tasks.os-bootstrap]
 description = "Install Arch AUR packages"
-run = '''
-#!/usr/bin/env sh
-set -eu
-
-if ! command -v yay >/dev/null 2>&1; then
-  printf '%s\n' '[mise_aur] stage=yay_install method=git_clone url=https://aur.archlinux.org/yay.git' >&2
-  tmpdir=$(mktemp -d)
-  trap 'rm -rf "$tmpdir"' EXIT HUP INT TERM
-  git clone https://aur.archlinux.org/yay.git "$tmpdir/yay"
-  (cd "$tmpdir/yay" && makepkg -si --noconfirm)
-fi
-
-aur_packages='{{ vars.aur_packages }}'
-set -f
-set -- $aur_packages
-printf '%s\n' "[mise_aur] stage=aur_install packages=$*" >&2
-yay -S --needed --noconfirm "$@"
-'''
+hide = true
+run = "{{ cwd | quote }}/scripts/install-aur-packages.sh"
+env = { AUR_PACKAGES = "{{ vars.aur_packages }}" }
