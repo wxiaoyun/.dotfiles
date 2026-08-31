@@ -19,7 +19,7 @@ system_packages.managers = ["pacman"]
 "pacman:ttf-iosevka-nerd" = "latest"
 
 [dotfiles]
-"~/.config/shell_platform" = { source = "platform/linux/config/shell_platform", mode = "symlink-each" }
+"~/.config/**/platform*" = { source = "linux/config/**/platform*" }
 
 [tasks.bootstrap]
 file = "bootstrap/install-aur-packages.sh"

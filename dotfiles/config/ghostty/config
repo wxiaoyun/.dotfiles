@@ -17,3 +17,5 @@ keybind = super+shift+w=close_tab
 keybind = alt+super+arrow_left=previous_tab
 keybind = alt+super+arrow_right=next_tab
 keybind = alt+backspace=text:\x1b\x7f
+
+config-file = ?platform_config

@@ -2,5 +2,4 @@
 system_packages.managers = ["brew", "brew-cask"]
 
 [dotfiles]
-"~/.config/shell_platform" = { source = "platform/macos/config/shell_platform", mode = "symlink-each" }
-"~/.config/ghostty" = { source = "platform/macos/config/ghostty", mode = "symlink-each" }
+"~/.config/**/platform*" = { source = "macos/config/**/platform*" }
