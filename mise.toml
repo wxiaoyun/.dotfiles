@@ -6,6 +6,8 @@ cache_prune_age = "7d"
 "brew:zoxide" = "latest"
 "brew:eza" = "latest"
 "brew:ripgrep" = "latest"
+"brew:fd" = "latest"
+"brew:bat" = "latest"
 "brew:jq" = "latest"
 "brew:fzf" = "latest"
 "brew:mise" = "latest"
@@ -62,7 +64,8 @@ obra/superpowers --skill brainstorming --skill executing-plans --skill subagent-
 """
 pi_packages = """
 npm:pi-web-access
-npm:pi-subagents
+npm:@tintinweb/pi-subagents
+npm:@ff-labs/pi-fff
 git:github.com/DietrichGebert/ponytail
 """
 

@@ -8,7 +8,7 @@
 # This controls (in seconds) when to switch to the next image
 INTERVAL=300
 MONITOR="DP-1"
-HYPRPAPER_CONFIG="$CONFIG_HOME/hypr/hyprpaper.conf"
+HYPRPAPER_CONFIG="$XDG_CONFIG_HOME/hypr/hyprpaper.conf"
 
 if [[ $# -lt 1 ]] || [[ ! -d $1 ]]; then
 	echo "Usage:

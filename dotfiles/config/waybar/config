@@ -88,7 +88,7 @@
       "format": "<span color=\"#61afef\"></span> {}",
       "tooltip": false,
       "interval": 3600,
-      "exec": "exec $CONFIG_HOME/shell/checkupdate.sh"
+      "exec": "exec $XDG_CONFIG_HOME/shell/checkupdate.sh"
     },
     "pulseaudio": {
       "format": "{volume}% {icon}",

@@ -21,3 +21,6 @@ zmodule zdharma-continuum/fast-syntax-highlighting
 
 # Command line prompt
 zmodule romkatv/powerlevel10k --use degit
+
+# VI mode
+zmodule jeffreytse/zsh-vi-mode
