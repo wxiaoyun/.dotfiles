@@ -35,6 +35,7 @@ cache_prune_age = "7d"
   "ghostty",
 ] }
 "~/.config/nvim" = "dotfiles/config/nvim"
+"~/.config/ghostty" = "dotfiles/config/ghostty"
 "~/.config/mise/config.toml" = "mise.toml"
 
 [bootstrap.hooks.pre-dotfiles]

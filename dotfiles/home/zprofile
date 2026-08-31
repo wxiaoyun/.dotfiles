@@ -1,7 +1,5 @@
 # Login shells
 
-[ -s "${CONFIG_HOME}/shell/platform.before.zprofile" ] && source "${CONFIG_HOME}/shell/platform.before.zprofile"
+[ -s "${CONFIG_HOME}/shell_platform/zprofile" ] && source "${CONFIG_HOME}/shell_platform/zprofile"
 
 eval "$(mise activate zsh --shims)"
-
-[ -s "${CONFIG_HOME}/shell/platform.zprofile" ] && source "${CONFIG_HOME}/shell/platform.zprofile"

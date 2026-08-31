@@ -23,7 +23,7 @@ setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt interactive_comments
 
-[ -s "${CONFIG_HOME}/shell/platform.zsh" ] && source "${CONFIG_HOME}/shell/platform.zsh"
+[ -s "${CONFIG_HOME}/shell_platform/zshrc" ] && source "${CONFIG_HOME}/shell_platform/zshrc"
 
 source "${CONFIG_HOME}/shell/zim.sh"
 source "${CONFIG_HOME}/shell/alias.sh"
