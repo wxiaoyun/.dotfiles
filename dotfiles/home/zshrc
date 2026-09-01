@@ -22,15 +22,14 @@ setopt hist_ignore_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt interactive_comments
-
-setopt AUTOCD
-setopt NOBEEP
-setopt NUMERIC_GLOB_SORT
+setopt autocd
+setopt nobeep
+setopt numeric_glob_sort
 
 [ -s "${XDG_CONFIG_HOME}/shell/platform.zshrc" ] && source "${XDG_CONFIG_HOME}/shell/platform.zshrc"
-
 source "${XDG_CONFIG_HOME}/shell/zim.sh"
 source "${XDG_CONFIG_HOME}/shell/alias.sh"
+source "${XDG_CONFIG_HOME}/shell/fzf.sh"
 source "${XDG_CONFIG_HOME}/shell/init.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
