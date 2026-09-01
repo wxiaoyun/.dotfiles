@@ -3,8 +3,6 @@
 - **Never assume internal terminology.** Ask when uncertain.
 - **Always verify docs against code.** Every document must be cross-checked
    via the code worktrees.
-- **Use lead/member separation for multi-agent work.** The lead orchestrates,
-   cross-references, follows up, and updates docs. Members handle code analysis.
 - **Default to skepticism on handoff claims.** If a handoff points to a
    specific file:line or proposes a fix, verify the symbol, semantics,
    reachability, and remedy against current code before acting.
@@ -23,10 +21,7 @@ Use logging extensively to help debugging, especially at fallible places to pinp
 2. **Log before external calls with INFO** — include method, URL/path (no secrets), and context (job_id, target, stage, idc, cluster).
 3. **Log at every fallible boundary** — API calls, config parse, Redis/DB I/O, mapping/validation, retry exhaustion.
 4. **Include structured fields** — use tracing fields (`job_id`, `target`, `stage`, `error`, `status`, `api_status`) so failures are searchable without reading stack traces.
-5. **On HTTP/API errors** — log status + truncated response body (cap ~512 chars); never log tokens or credentials.
-6. **Name the stage** — e.g. `fetch_sql`, `fetch_integral`, `dedup_get` so one log line identifies the broken step.
-7. **Retries** — WARN on intermediate retry; ERROR on final attempt with attempt count.
-8. **Skips are INFO** — log reason (`empty_value_list`, `no_new_day`) with context.
+5. **Name the stage** — e.g. `fetch_sql`, `fetch_integral`, `dedup_get` so one log line identifies the broken step.
 
 Default: add logging when touching fallible code even if user did not ask — debugging production issues depends on it.
 
@@ -35,11 +30,11 @@ Default: add logging when touching fallible code even if user did not ask — de
 - **No co-author lines**: Never include `Co-Authored-By` or any co-author
   information in commit messages.
 
-## Tool use
+## CLI use
 
-### CRITICAL: Efficient JSON Reading with `jq`
-
-**YOU MUST USE `jq` to extract specific data from JSON files instead of reading entire files.**
+- `jq`: use `jq` to extract specific data from JSON files instead of reading entire files
+- `rg`: use `rg` over `grep`
+- `fd`: use `fd` over `find`
 
 ## Skill Use
 
