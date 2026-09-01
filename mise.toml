@@ -65,7 +65,6 @@ obra/superpowers --skill brainstorming --skill executing-plans --skill subagent-
 pi_packages = """
 npm:pi-web-access
 npm:@tintinweb/pi-subagents
-npm:@ff-labs/pi-fff
 git:github.com/DietrichGebert/ponytail
 """
 
