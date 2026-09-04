@@ -33,8 +33,6 @@ Default: add logging when touching fallible code even if user did not ask — de
 ## CLI use
 
 - `jq`: use `jq` to extract specific data from JSON files instead of reading entire files
-- `rg`: use `rg` over `grep`
-- `fd`: use `fd` over `find`
 
 ## Skill Use
 
