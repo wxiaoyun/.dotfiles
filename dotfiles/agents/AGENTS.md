@@ -30,8 +30,9 @@ Default: add logging when touching fallible code even if user did not ask — de
 - **No co-author lines**: Never include `Co-Authored-By` or any co-author
   information in commit messages.
 
-## CLI use
+## Shell use
 
+- **Run all shell commands non-interactively**
 - `jq`: use `jq` to extract specific data from JSON files instead of reading entire files
 
 ## Skill Use
