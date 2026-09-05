@@ -25,15 +25,12 @@ system_packages.managers = ["pacman"]
 [dotfiles]
 "~/.config/**/platform*" = { source = "linux/config/**/platform*" }
 
-[vars]
-aur_packages = """
+[tasks.os-bootstrap]
+description = "Install Arch AUR packages"
+hide = true
+env.AUR_PACKAGES = """
 herdr-bin
 rtk-bin
 pi-coding-agent-bin
 """
-
-[tasks.os-bootstrap]
-description = "Install Arch AUR packages"
-hide = true
 run = "{{ cwd | quote }}/scripts/install-aur-packages.sh"
-env = { AUR_PACKAGES = "{{ vars.aur_packages }}" }
