@@ -1,5 +1,5 @@
 [settings]
-system_packages.managers = ["brew", "brew-cask"]
+system_packages.managers = ["brew"]
 
 [dotfiles]
 "~/.config/**/platform*" = { source = "macos/config/**/platform*" }
