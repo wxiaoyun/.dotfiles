@@ -68,12 +68,13 @@ run = [{ task = "add-universal-skills" }, { task = "add-pi-extension" }]
 
 [tasks.add-universal-skills]
 description = "Install shared agent skills"
+env.AGENTS = "universal claude-code"
 env.AGENT_SKILLS = """
 JuliusBrussee/caveman --skill caveman
 mattpocock/skills --skill domain-modeling --skill grilling --skill grill-with-docs --skill code-review --skill tdd --skill research
 obra/superpowers --skill brainstorming --skill executing-plans --skill subagent-driven-development --skill writing-plans
 """
-run = "{{ cwd | quote }}/scripts/add-universal-skills.sh"
+run = "{{ cwd | quote }}/scripts/add-agent-skills.sh"
 
 [tasks.add-pi-extension]
 description = "Install Pi packages"
