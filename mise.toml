@@ -78,7 +78,7 @@ JuliusBrussee/caveman --skill caveman
 mattpocock/skills --skill domain-modeling --skill grilling --skill grill-with-docs --skill code-review --skill tdd --skill research
 obra/superpowers --skill brainstorming --skill executing-plans --skill subagent-driven-development --skill writing-plans
 """
-run = "{{ cwd | quote }}/scripts/add-agent-skills.sh"
+file = "{{ cwd }}/scripts/add-agent-skills.sh"
 
 [tasks.add-claude-plugin]
 description = "Install Claude code plugins"
@@ -96,4 +96,4 @@ npm:@juicesharp/rpiv-ask-user-question
 git:github.com/DietrichGebert/ponytail
 npm:@gotgenes/pi-anthropic-auth
 """
-run = "{{ cwd | quote }}/scripts/add-pi-extension.sh"
+file = "{{ cwd }}/scripts/add-pi-extension.sh"
