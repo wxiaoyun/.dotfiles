@@ -94,5 +94,6 @@ npm:pi-web-access
 npm:@tintinweb/pi-subagents
 npm:@juicesharp/rpiv-ask-user-question
 git:github.com/DietrichGebert/ponytail
+npm:@gotgenes/pi-anthropic-auth
 """
 run = "{{ cwd | quote }}/scripts/add-pi-extension.sh"
