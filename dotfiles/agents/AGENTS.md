@@ -1,49 +1,47 @@
 # Critical Rules for Agents
 
 - **Never assume internal terminology.** Ask when uncertain.
-- **Always verify docs against code.** Every document must be cross-checked
-   via the code worktrees.
-- **Default to skepticism on handoff claims.** If a handoff points to a
-   specific file:line or proposes a fix, verify the symbol, semantics,
-   reachability, and remedy against current code before acting.
-- **Use online data tools to verify and clarify.** Query live systems through
-   the installed skills instead of reasoning from code alone.
-- **No niche symbols or punctuation.** No em-dashes, no semicolons, no
-   section symbols. No mid-sentence line breaks.
+- **Verify docs against code.** Cross-check every document via code worktrees.
+- **Default to skepticism on handoffs.** Verify symbols, semantics, reachability, and fixes against current code before acting.
+- **Use online data tools.** Query live systems via skills instead of relying on static reasoning.
+- **Strict punctuation rules.** No em dashes, semicolons, section symbols, or mid-sentence line breaks.
 
 ## Coding Practices
 
-Use logging extensively to help debugging, especially at fallible places to pinpoint point of failure.
+Add structured logging at fallible boundaries proactively.
 
-1. **Log before external calls with INFO** — include method, URL/path (no secrets), and context (job_id, target, stage, idc, cluster).
-2. **Log at every fallible boundary** — API calls, config parse, Redis/DB I/O, mapping/validation, retry exhaustion.
-3. **Include structured fields** — use tracing fields (`job_id`, `target`, `stage`, `error`, `status`, `api_status`) so failures are searchable without reading stack traces.
-4. **Name the stage** — e.g. `fetch_sql`, `fetch_integral`, `dedup_get` so one log line identifies the broken step.
+- **Pre-call INFO logs:** Record method, target URL or path without secrets, and tracing IDs.
+- **Fallible boundaries:** Log API calls, config parsing, Redis or DB I/O, validation, and retry exhaustion.
+- **Searchable fields:** Include `job_id`, `target`, `stage`, `error`, `status`, and `api_status`.
+- **Name the stage:** Use explicit identifiers like `fetch_sql` or `dedup_get`.
 
-Default: add logging when touching fallible code even if user did not ask — debugging production issues depends on it.
+## Commit Messages
 
-## Commit Message Preferences
-
-- **No co-author lines**: Never include `Co-Authored-By` or any co-author
-  information in commit messages.
+- **No co-authors.** Never include `Co-Authored-By` lines or co-author metadata.
 
 ## Shell Use
 
-- **Run all shell commands non-interactively**
-- use `jq` to extract specific data from JSON files instead of reading entire files
-- use `rg` over `grep`
-- use `fd` over `find`
+- Run all commands non-interactively.
+- Use `jq` to extract fields instead of dumping raw JSON.
+- Use `rg` over `grep`.
+- Use `fd` over `find`.
 
-## Skill Use
+## Skills
 
 ### Caveman
 
-Session start: FIRST action = Read `caveman` skill. Do this before any user-facing reply, tool plan, or investigation — including meta/testing/questions.
-
-Then follow skill exactly for all responses. Default intensity: full.
+On session start, read `caveman` skill as the immediate first action before any planning, tool execution, or user response. Apply it across all outputs at `full` intensity.
 
 ## Subagent Use
 
-### Grunt / Mechanical Work
+### Context Protection
 
-Work workloads that involves injesting a large amount of input and does not require a lot of reasoning, always prefer to spawn a subagent to perform the task.
+Proactively offload high-volume ingestion and open-ended exploration to subagents to protect the main context window.
+
+Delegate whenever an upcoming step risks polluting the context, even if the task is not well defined:
+
+- **Broad code tracing:** Tracing deep call chains or grepping across multiple repositories.
+- **Heavy research:** Reading raw API specs, long documentation pages, or large build outputs.
+- **Bulky log or payload inspection:** Parsing large JSON dumps, stack traces, or terminal outputs.
+
+Require subagents to return only distilled findings, key snippets, and actionable conclusions.
