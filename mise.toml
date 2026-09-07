@@ -55,6 +55,7 @@ ln -sf ~/.agents/AGENTS.md ~/.pi/agent/AGENTS.md
 [bootstrap.hooks.post-packages]
 run = """
 rtk init -g --agent pi
+herdr integration install pi
 """
 
 [tasks.os-bootstrap]
