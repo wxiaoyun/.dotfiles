@@ -27,7 +27,7 @@ Default: add logging when touching fallible code even if user did not ask — de
 - **No co-author lines**: Never include `Co-Authored-By` or any co-author
   information in commit messages.
 
-## Shell use
+## Shell Use
 
 - **Run all shell commands non-interactively**
 - use `jq` to extract specific data from JSON files instead of reading entire files
@@ -41,3 +41,9 @@ Default: add logging when touching fallible code even if user did not ask — de
 Session start: FIRST action = Read `caveman` skill. Do this before any user-facing reply, tool plan, or investigation — including meta/testing/questions.
 
 Then follow skill exactly for all responses. Default intensity: full.
+
+## Subagent Use
+
+### Grunt / Mechanical Work
+
+Work workloads that involves injesting a large amount of input and does not require a lot of reasoning, always prefer to spawn a subagent to perform the task.
