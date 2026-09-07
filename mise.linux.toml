@@ -31,7 +31,6 @@ hide = true
 env.AUR_PACKAGES = """
 herdr-bin
 rtk-bin
-claude-code
 pi-coding-agent-bin
 """
 run = "{{ cwd | quote }}/scripts/install-aur-packages.sh"
