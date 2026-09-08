@@ -67,6 +67,7 @@ description = "Install shared agent skills and Pi packages"
 depends = ["os-bootstrap"]
 run = [
   { task = "add-universal-skills" },
+  { task = "add-claude-plugin" },
   { task = "add-pi-extension" },
 ]
 
@@ -79,6 +80,13 @@ mattpocock/skills --skill domain-modeling --skill grilling --skill grill-with-do
 obra/superpowers --skill brainstorming --skill executing-plans --skill subagent-driven-development --skill writing-plans
 """
 file = "{{ cwd }}/scripts/add-agent-skills.sh"
+
+[tasks.add-claude-plugin]
+description = "Install Claude code plugins"
+run = """
+claude plugin marketplace add DietrichGebert/ponytail
+claude plugin install ponytail@ponytail
+"""
 
 [tasks.add-pi-extension]
 description = "Install Pi packages"
