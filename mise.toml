@@ -31,6 +31,7 @@ cache_prune_age = "7d"
 "~/.p10k.zsh" = "dotfiles/home/p10k.zsh"
 "~/.tmux.conf" = "dotfiles/home/tmux.conf"
 "~/.agents" = { source = "dotfiles/agents", mode = "symlink-each" }
+"~/.claude" = { source = "dotfiles/claude", mode = "symlink-each" }
 "~/.local/bin" = { source = "dotfiles/local-bin", mode = "symlink-each" }
 "~/.config" = { source = "dotfiles/config", mode = "symlink-each", exclude = [
   "nvim",
@@ -52,12 +53,6 @@ run = """
 ln -sf ~/.agents/AGENTS.md ~/.pi/agent/AGENTS.md
 """
 
-[bootstrap.hooks.post-packages]
-run = """
-rtk init -g --agent pi
-herdr integration install pi
-"""
-
 [tasks.os-bootstrap]
 hide = true
 run = ":"
@@ -66,30 +61,35 @@ run = ":"
 description = "Install shared agent skills and Pi packages"
 depends = ["os-bootstrap"]
 run = [
+  { task = "setup-harness-peripherals" },
   { task = "add-universal-skills" },
   { task = "add-claude-plugin" },
   { task = "add-pi-extension" },
 ]
 
+[tasks.setup-harness-peripherals]
+run = """
+rtk init -g --agent pi
+herdr integration install pi
+rtk init -g --agent claude
+herdr integration install claude
+"""
+
 [tasks.add-universal-skills]
-description = "Install shared agent skills"
 env.AGENTS = "universal claude-code"
 env.AGENT_SKILLS = """
 JuliusBrussee/caveman --skill caveman
-mattpocock/skills --skill domain-modeling --skill grilling --skill grill-with-docs --skill code-review --skill tdd --skill research
-obra/superpowers --skill brainstorming --skill executing-plans --skill subagent-driven-development --skill writing-plans
+mattpocock/skills --skill research --skill domain-modeling --skill grilling --skill grill-with-docs --skill to-spec --skill tdd --skill implement --skill code-review
 """
 file = "{{ cwd }}/scripts/add-agent-skills.sh"
 
 [tasks.add-claude-plugin]
-description = "Install Claude code plugins"
 run = """
 claude plugin marketplace add DietrichGebert/ponytail
 claude plugin install ponytail@ponytail
 """
 
 [tasks.add-pi-extension]
-description = "Install Pi packages"
 env.PI_PACKAGES = """
 npm:pi-web-access
 git:github.com/wxiaoyun/pi-herdr-subagents
